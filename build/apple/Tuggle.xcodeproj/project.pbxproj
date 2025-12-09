@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		184ED4802EE8AA0D0085B3D0 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED47E2EE8AA0D0085B3D0 /* F8karting.cpp */; };
-		184ED4812EE8AA0D0085B3D0 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4782EE8AA0D0085B3D0 /* F5fellowship.cpp */; };
-		184ED4822EE8AA0D0085B3D0 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4762EE8AA0D0085B3D0 /* F4traffic.cpp */; };
-		184ED4832EE8AA0D0085B3D0 /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED47C2EE8AA0D0085B3D0 /* F7samba.cpp */; };
-		184ED4842EE8AA0D0085B3D0 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4702EE8AA0D0085B3D0 /* F1tancho.cpp */; };
-		184ED4852EE8AA0D0085B3D0 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4722EE8AA0D0085B3D0 /* F2sampler.cpp */; };
-		184ED4862EE8AA0D0085B3D0 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4742EE8AA0D0085B3D0 /* F3snakeyes.cpp */; };
-		184ED4872EE8AA0D0085B3D0 /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED47A2EE8AA0D0085B3D0 /* F6katamari.cpp */; };
-		184ED4882EE8AA0D0085B3D0 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED47E2EE8AA0D0085B3D0 /* F8karting.cpp */; };
-		184ED4892EE8AA0D0085B3D0 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4782EE8AA0D0085B3D0 /* F5fellowship.cpp */; };
-		184ED48A2EE8AA0D0085B3D0 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4762EE8AA0D0085B3D0 /* F4traffic.cpp */; };
-		184ED48B2EE8AA0D0085B3D0 /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED47C2EE8AA0D0085B3D0 /* F7samba.cpp */; };
-		184ED48C2EE8AA0D0085B3D0 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4702EE8AA0D0085B3D0 /* F1tancho.cpp */; };
-		184ED48D2EE8AA0D0085B3D0 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4722EE8AA0D0085B3D0 /* F2sampler.cpp */; };
-		184ED48E2EE8AA0D0085B3D0 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4742EE8AA0D0085B3D0 /* F3snakeyes.cpp */; };
-		184ED48F2EE8AA0D0085B3D0 /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED47A2EE8AA0D0085B3D0 /* F6katamari.cpp */; };
+		184ED4F92EE8CC280085B3D0 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */; };
+		184ED4FA2EE8CC280085B3D0 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F72EE8CC280085B3D0 /* F8karting.cpp */; };
+		184ED4FB2EE8CC280085B3D0 /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */; };
+		184ED4FC2EE8CC280085B3D0 /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F52EE8CC280085B3D0 /* F7samba.cpp */; };
+		184ED4FD2EE8CC280085B3D0 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */; };
+		184ED4FE2EE8CC280085B3D0 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */; };
+		184ED4FF2EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */; };
+		184ED5002EE8CC280085B3D0 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */; };
+		184ED5012EE8CC280085B3D0 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */; };
+		184ED5022EE8CC280085B3D0 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F72EE8CC280085B3D0 /* F8karting.cpp */; };
+		184ED5032EE8CC280085B3D0 /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */; };
+		184ED5042EE8CC280085B3D0 /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F52EE8CC280085B3D0 /* F7samba.cpp */; };
+		184ED5052EE8CC280085B3D0 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */; };
+		184ED5062EE8CC280085B3D0 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */; };
+		184ED5072EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */; };
+		184ED5082EE8CC280085B3D0 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */; };
 		AB084F9D0E7DEE813F658313 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = AACD441E407C552AECEE9B33 /* textures */; };
 		ABBCECE05884D7F0EED5F50D /* json in Resources */ = {isa = PBXBuildFile; fileRef = AA1BA6EDE03659A8C6BB7FDA /* json */; };
 		ABEB4F30ABE79246F2AF327A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = AACD79EE60E78EEA58EF7CC9 /* fonts */; };
@@ -166,22 +166,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		184ED46F2EE8AA0D0085B3D0 /* F1tancho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F1tancho.h; sourceTree = "<group>"; };
-		184ED4702EE8AA0D0085B3D0 /* F1tancho.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F1tancho.cpp; sourceTree = "<group>"; };
-		184ED4712EE8AA0D0085B3D0 /* F2sampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F2sampler.h; sourceTree = "<group>"; };
-		184ED4722EE8AA0D0085B3D0 /* F2sampler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F2sampler.cpp; sourceTree = "<group>"; };
-		184ED4732EE8AA0D0085B3D0 /* F3snakeyes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F3snakeyes.h; sourceTree = "<group>"; };
-		184ED4742EE8AA0D0085B3D0 /* F3snakeyes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F3snakeyes.cpp; sourceTree = "<group>"; };
-		184ED4752EE8AA0D0085B3D0 /* F4traffic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F4traffic.h; sourceTree = "<group>"; };
-		184ED4762EE8AA0D0085B3D0 /* F4traffic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F4traffic.cpp; sourceTree = "<group>"; };
-		184ED4772EE8AA0D0085B3D0 /* F5fellowship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F5fellowship.h; sourceTree = "<group>"; };
-		184ED4782EE8AA0D0085B3D0 /* F5fellowship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F5fellowship.cpp; sourceTree = "<group>"; };
-		184ED4792EE8AA0D0085B3D0 /* F6katamari.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F6katamari.h; sourceTree = "<group>"; };
-		184ED47A2EE8AA0D0085B3D0 /* F6katamari.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F6katamari.cpp; sourceTree = "<group>"; };
-		184ED47B2EE8AA0D0085B3D0 /* F7samba.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F7samba.h; sourceTree = "<group>"; };
-		184ED47C2EE8AA0D0085B3D0 /* F7samba.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F7samba.cpp; sourceTree = "<group>"; };
-		184ED47D2EE8AA0D0085B3D0 /* F8karting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F8karting.h; sourceTree = "<group>"; };
-		184ED47E2EE8AA0D0085B3D0 /* F8karting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F8karting.cpp; sourceTree = "<group>"; };
+		184ED4E82EE8CC280085B3D0 /* F1tancho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F1tancho.h; sourceTree = "<group>"; };
+		184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F1tancho.cpp; sourceTree = "<group>"; };
+		184ED4EA2EE8CC280085B3D0 /* F2sampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F2sampler.h; sourceTree = "<group>"; };
+		184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F2sampler.cpp; sourceTree = "<group>"; };
+		184ED4EC2EE8CC280085B3D0 /* F3snakeyes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F3snakeyes.h; sourceTree = "<group>"; };
+		184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F3snakeyes.cpp; sourceTree = "<group>"; };
+		184ED4EE2EE8CC280085B3D0 /* F4traffic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F4traffic.h; sourceTree = "<group>"; };
+		184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F4traffic.cpp; sourceTree = "<group>"; };
+		184ED4F02EE8CC280085B3D0 /* F5fellowship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F5fellowship.h; sourceTree = "<group>"; };
+		184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F5fellowship.cpp; sourceTree = "<group>"; };
+		184ED4F22EE8CC280085B3D0 /* F6katamari.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F6katamari.h; sourceTree = "<group>"; };
+		184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F6katamari.cpp; sourceTree = "<group>"; };
+		184ED4F42EE8CC280085B3D0 /* F7samba.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F7samba.h; sourceTree = "<group>"; };
+		184ED4F52EE8CC280085B3D0 /* F7samba.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F7samba.cpp; sourceTree = "<group>"; };
+		184ED4F62EE8CC280085B3D0 /* F8karting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F8karting.h; sourceTree = "<group>"; };
+		184ED4F72EE8CC280085B3D0 /* F8karting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F8karting.cpp; sourceTree = "<group>"; };
 		AA1BA6EDE03659A8C6BB7FDA /* json */ = {isa = PBXFileReference; lastKnownFileType = folder; path = json; sourceTree = "<group>"; };
 		AACD441E407C552AECEE9B33 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
 		AACD79EE60E78EEA58EF7CC9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -300,25 +300,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		184ED47F2EE8AA0D0085B3D0 /* fidgetables */ = {
+		184ED4F82EE8CC280085B3D0 /* fidgetables */ = {
 			isa = PBXGroup;
 			children = (
-				184ED46F2EE8AA0D0085B3D0 /* F1tancho.h */,
-				184ED4702EE8AA0D0085B3D0 /* F1tancho.cpp */,
-				184ED4712EE8AA0D0085B3D0 /* F2sampler.h */,
-				184ED4722EE8AA0D0085B3D0 /* F2sampler.cpp */,
-				184ED4732EE8AA0D0085B3D0 /* F3snakeyes.h */,
-				184ED4742EE8AA0D0085B3D0 /* F3snakeyes.cpp */,
-				184ED4752EE8AA0D0085B3D0 /* F4traffic.h */,
-				184ED4762EE8AA0D0085B3D0 /* F4traffic.cpp */,
-				184ED4772EE8AA0D0085B3D0 /* F5fellowship.h */,
-				184ED4782EE8AA0D0085B3D0 /* F5fellowship.cpp */,
-				184ED4792EE8AA0D0085B3D0 /* F6katamari.h */,
-				184ED47A2EE8AA0D0085B3D0 /* F6katamari.cpp */,
-				184ED47B2EE8AA0D0085B3D0 /* F7samba.h */,
-				184ED47C2EE8AA0D0085B3D0 /* F7samba.cpp */,
-				184ED47D2EE8AA0D0085B3D0 /* F8karting.h */,
-				184ED47E2EE8AA0D0085B3D0 /* F8karting.cpp */,
+				184ED4E82EE8CC280085B3D0 /* F1tancho.h */,
+				184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */,
+				184ED4EA2EE8CC280085B3D0 /* F2sampler.h */,
+				184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */,
+				184ED4EC2EE8CC280085B3D0 /* F3snakeyes.h */,
+				184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */,
+				184ED4EE2EE8CC280085B3D0 /* F4traffic.h */,
+				184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */,
+				184ED4F02EE8CC280085B3D0 /* F5fellowship.h */,
+				184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */,
+				184ED4F22EE8CC280085B3D0 /* F6katamari.h */,
+				184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */,
+				184ED4F42EE8CC280085B3D0 /* F7samba.h */,
+				184ED4F52EE8CC280085B3D0 /* F7samba.cpp */,
+				184ED4F62EE8CC280085B3D0 /* F8karting.h */,
+				184ED4F72EE8CC280085B3D0 /* F8karting.cpp */,
 			);
 			path = fidgetables;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 		EB0F3C9827FB9DCB0037CC66 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				184ED47F2EE8AA0D0085B3D0 /* fidgetables */,
+				184ED4F82EE8CC280085B3D0 /* fidgetables */,
 				BAF1FD7E13A92DBFCFC0BB0B /* InputController.cpp */,
 				BA9FAC0D6FAEBC2C4D71ABEF /* FidgetableView.cpp */,
 				BA022E8353ED6FBDEB472EC6 /* FidgetApp.cpp */,
@@ -646,16 +646,16 @@
 			files = (
 				BBE3FCF6D3DDCA82CABE21AB /* InputController.cpp in Sources */,
 				BBEB7F91FDDBC4F7D67CDB76 /* FidgetableView.cpp in Sources */,
-				184ED4802EE8AA0D0085B3D0 /* F8karting.cpp in Sources */,
-				184ED4812EE8AA0D0085B3D0 /* F5fellowship.cpp in Sources */,
-				184ED4822EE8AA0D0085B3D0 /* F4traffic.cpp in Sources */,
-				184ED4832EE8AA0D0085B3D0 /* F7samba.cpp in Sources */,
-				184ED4842EE8AA0D0085B3D0 /* F1tancho.cpp in Sources */,
-				184ED4852EE8AA0D0085B3D0 /* F2sampler.cpp in Sources */,
-				184ED4862EE8AA0D0085B3D0 /* F3snakeyes.cpp in Sources */,
-				184ED4872EE8AA0D0085B3D0 /* F6katamari.cpp in Sources */,
 				BB7BCBEF7D9B95ACCBCD93A1 /* FidgetApp.cpp in Sources */,
 				BBF60F12DBFDFA4EBA88AD6F /* SwipeCarouselController.cpp in Sources */,
+				184ED5012EE8CC280085B3D0 /* F2sampler.cpp in Sources */,
+				184ED5022EE8CC280085B3D0 /* F8karting.cpp in Sources */,
+				184ED5032EE8CC280085B3D0 /* F6katamari.cpp in Sources */,
+				184ED5042EE8CC280085B3D0 /* F7samba.cpp in Sources */,
+				184ED5052EE8CC280085B3D0 /* F1tancho.cpp in Sources */,
+				184ED5062EE8CC280085B3D0 /* F5fellowship.cpp in Sources */,
+				184ED5072EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */,
+				184ED5082EE8CC280085B3D0 /* F4traffic.cpp in Sources */,
 				BB0C5A5D28A65554CEF76EE4 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,16 +666,16 @@
 			files = (
 				BC1BA06BBD42FF24AB5B0AF5 /* InputController.cpp in Sources */,
 				BC98F44CAECC5CA61B5E4CAC /* FidgetableView.cpp in Sources */,
-				184ED4882EE8AA0D0085B3D0 /* F8karting.cpp in Sources */,
-				184ED4892EE8AA0D0085B3D0 /* F5fellowship.cpp in Sources */,
-				184ED48A2EE8AA0D0085B3D0 /* F4traffic.cpp in Sources */,
-				184ED48B2EE8AA0D0085B3D0 /* F7samba.cpp in Sources */,
-				184ED48C2EE8AA0D0085B3D0 /* F1tancho.cpp in Sources */,
-				184ED48D2EE8AA0D0085B3D0 /* F2sampler.cpp in Sources */,
-				184ED48E2EE8AA0D0085B3D0 /* F3snakeyes.cpp in Sources */,
-				184ED48F2EE8AA0D0085B3D0 /* F6katamari.cpp in Sources */,
 				BC5FDE54BC9D22BD66C2FF7C /* FidgetApp.cpp in Sources */,
 				BC6E3B58AED5F38C17FA6FE3 /* SwipeCarouselController.cpp in Sources */,
+				184ED4F92EE8CC280085B3D0 /* F2sampler.cpp in Sources */,
+				184ED4FA2EE8CC280085B3D0 /* F8karting.cpp in Sources */,
+				184ED4FB2EE8CC280085B3D0 /* F6katamari.cpp in Sources */,
+				184ED4FC2EE8CC280085B3D0 /* F7samba.cpp in Sources */,
+				184ED4FD2EE8CC280085B3D0 /* F1tancho.cpp in Sources */,
+				184ED4FE2EE8CC280085B3D0 /* F5fellowship.cpp in Sources */,
+				184ED4FF2EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */,
+				184ED5002EE8CC280085B3D0 /* F4traffic.cpp in Sources */,
 				BCFAAB022CD9CD93B6D5BD01 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -832,7 +832,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = Y6ND74X834;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -872,7 +871,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = Y6ND74X834;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
