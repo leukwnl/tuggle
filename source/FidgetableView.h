@@ -2,15 +2,18 @@
 //  FidgetableView.h
 //  Tuggle
 //
-//  Base class for all Fidgetable toys in the carousel.
-//  Each Fidgetable is a page containing an interactive circle button
-//  with a label below it.
+//  Abstract base class for all Fidgetable toys in the carousel.
+//  Each Fidgetable is a page that can contain any interactive content.
 //
-//  EXPANSION NOTES:
-//  - Override update() to add custom animation/behavior
-//  - Override onPressed() to handle custom interaction
-//  - Add member variables for toy-specific state
-//  - The circle node can be replaced with custom graphics
+//  This base class provides:
+//  - Root scene node and page size management
+//  - Active state tracking (only centered page receives input)
+//  - Helper utilities for creating common shapes
+//
+//  Subclasses must implement:
+//  - buildContent() to create their specific UI elements
+//  - activateInputs() / deactivateInputs() to manage their input listeners
+//  - setActive() to handle visual changes when becoming active/inactive
 //
 
 #ifndef __FIDGETABLE_VIEW_H__
@@ -19,33 +22,23 @@
 #include <cugl/cugl.h>
 
 /**
- * Base class for a single Fidgetable toy in the carousel.
+ * Abstract base class for a single Fidgetable toy in the carousel.
  * 
  * Each FidgetableView represents one "page" in the horizontal carousel.
- * It contains:
- *   - A circular button that can be pressed
- *   - A label showing the fidgetable's name
- *   - Methods for update, rendering, and input handling
+ * The base class manages the root node and page dimensions, but does not
+ * assume any specific UI elements - subclasses define their own content.
  * 
  * To create a new toy type:
  *   1. Subclass FidgetableView
- *   2. Override buildContent() to add custom visuals
- *   3. Override onPressed() to handle interaction
- *   4. Override update() for animations
+ *   2. Implement buildContent() to create custom visuals
+ *   3. Implement activateInputs() / deactivateInputs() for input handling
+ *   4. Override setActive() for active/inactive visual changes
+ *   5. Override update() for animations
  */
 class FidgetableView {
 protected:
     /** The root node containing all visual elements for this fidgetable */
     std::shared_ptr<cugl::scene2::SceneNode> _rootNode;
-    
-    /** The interactive circle button */
-    std::shared_ptr<cugl::scene2::Button> _circleButton;
-    
-    /** The circle visual node (drawn as filled circle) */
-    std::shared_ptr<cugl::scene2::PolygonNode> _circleNode;
-    
-    /** The label below the circle */
-    std::shared_ptr<cugl::scene2::Label> _label;
     
     /** The index/ID of this fidgetable (1-8) */
     int _index;
@@ -59,17 +52,15 @@ protected:
     /** The size of the page (typically screen size) */
     cugl::Size _pageSize;
     
-    /** The radius of the circle button */
-    float _circleRadius;
-    
     /**
      * Creates the visual content for this fidgetable.
-     * Override in subclasses to customize appearance.
+     * Subclasses MUST implement this to build their specific UI.
      */
-    virtual void buildContent();
+    virtual void buildContent() = 0;
     
     /**
-     * Creates a filled circle polygon for the button.
+     * Creates a filled circle polygon node.
+     * Utility method available to all subclasses.
      * 
      * @param radius    The radius of the circle
      * @param color     The fill color
@@ -94,6 +85,7 @@ public:
     
     /**
      * Initializes the FidgetableView with the given parameters.
+     * Creates the root node and calls buildContent().
      * 
      * @param index     The index of this fidgetable (1-8)
      * @param pageSize  The size of each page in the carousel
@@ -102,17 +94,8 @@ public:
     virtual bool init(int index, const cugl::Size& pageSize);
     
     /**
-     * Static allocator for FidgetableView.
-     * 
-     * @param index     The index of this fidgetable (1-8)
-     * @param pageSize  The size of each page in the carousel
-     * @return A newly allocated FidgetableView
-     */
-    static std::shared_ptr<FidgetableView> alloc(int index, 
-                                                  const cugl::Size& pageSize);
-    
-    /**
      * Disposes of all resources used by this fidgetable.
+     * Subclasses should override to clean up their specific resources.
      */
     virtual void dispose();
     
@@ -125,12 +108,6 @@ public:
     virtual void update(float timestep);
     
     /**
-     * Called when the circle button is pressed.
-     * Override in subclasses for custom interaction.
-     */
-    virtual void onPressed();
-    
-    /**
      * Returns the root scene node for this fidgetable.
      * Add this to your scene graph to display the fidgetable.
      * 
@@ -140,11 +117,11 @@ public:
     
     /**
      * Sets whether this fidgetable is currently active (centered).
-     * Only the active fidgetable should receive input.
+     * Subclasses should override to update visuals (e.g., dim inactive toys).
      * 
      * @param active    Whether this fidgetable is active
      */
-    void setActive(bool active);
+    virtual void setActive(bool active);
     
     /**
      * Returns whether this fidgetable is currently active.
@@ -168,16 +145,17 @@ public:
     const std::string& getName() const { return _name; }
     
     /**
-     * Activates the button for input processing.
-     * Must be called after adding to scene.
+     * Activates input listeners for this fidgetable.
+     * Subclasses MUST implement to activate their specific buttons/controls.
+     * Called after adding to scene.
      */
-    void activateButton();
+    virtual void activateInputs() = 0;
     
     /**
-     * Deactivates the button from input processing.
+     * Deactivates input listeners for this fidgetable.
+     * Subclasses MUST implement to deactivate their specific buttons/controls.
      */
-    void deactivateButton();
+    virtual void deactivateInputs() = 0;
 };
 
 #endif /* __FIDGETABLE_VIEW_H__ */
-

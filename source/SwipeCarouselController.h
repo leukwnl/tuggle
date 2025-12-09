@@ -21,14 +21,14 @@
 #include "InputController.h"
 
 // Forward declarations for all fidgetable types
-#include "Fidgetable1.h"
-#include "Fidgetable2.h"
-#include "Fidgetable3.h"
-#include "Fidgetable4.h"
-#include "Fidgetable5.h"
-#include "Fidgetable6.h"
-#include "Fidgetable7.h"
-#include "Fidgetable8.h"
+#include "fidgetables/F1tancho.h"
+#include "fidgetables/F2sampler.h"
+#include "fidgetables/F3snakeyes.h"
+#include "fidgetables/F4traffic.h"
+#include "fidgetables/F5fellowship.h"
+#include "fidgetables/F6katamari.h"
+#include "fidgetables/F7samba.h"
+#include "fidgetables/F8karting.h"
 
 /** Number of fidgetables in the carousel */
 #define NUM_FIDGETABLES 8
@@ -243,13 +243,13 @@ public:
     bool isSnapping() const { return _isSnapping; }
     
     /**
-     * Activates all button inputs in the carousel.
+     * Activates all fidgetable inputs in the carousel.
      * Call after adding to scene.
      */
     void activateInputs();
     
     /**
-     * Deactivates all button inputs in the carousel.
+     * Deactivates all fidgetable inputs in the carousel.
      */
     void deactivateInputs();
 };

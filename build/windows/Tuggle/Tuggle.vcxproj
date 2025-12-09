@@ -238,29 +238,13 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="..\..\..\source\Fidgetable7.h"/>
-
     <ClInclude Include="..\..\..\source\FidgetApp.h"/>
 
     <ClInclude Include="..\..\..\source\InputController.h"/>
 
     <ClInclude Include="..\..\..\source\FidgetableView.h"/>
 
-    <ClInclude Include="..\..\..\source\Fidgetable3.h"/>
-
-    <ClInclude Include="..\..\..\source\Fidgetable4.h"/>
-
-    <ClInclude Include="..\..\..\source\Fidgetable5.h"/>
-
-    <ClInclude Include="..\..\..\source\Fidgetable1.h"/>
-
     <ClInclude Include="..\..\..\source\SwipeCarouselController.h"/>
-
-    <ClInclude Include="..\..\..\source\Fidgetable6.h"/>
-
-    <ClInclude Include="..\..\..\source\Fidgetable2.h"/>
-
-    <ClInclude Include="..\..\..\source\Fidgetable8.h"/>
 
   </ItemGroup>
   <ItemGroup>
