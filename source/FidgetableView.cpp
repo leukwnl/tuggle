@@ -14,7 +14,7 @@ using namespace cugl::scene2;
 #pragma mark -
 #pragma mark Constructors
 
-FidgetableView::FidgetableView() : _index(0), _isActive(false) {}
+FidgetableView::FidgetableView() : _index(0), _isActive(false), _isInteracting(false) {}
 
 FidgetableView::~FidgetableView() { dispose(); }
 

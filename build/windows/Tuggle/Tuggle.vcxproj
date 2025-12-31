@@ -246,6 +246,22 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
 
     <ClInclude Include="..\..\..\source\SwipeCarouselController.h"/>
 
+    <ClInclude Include="..\..\..\source\fidgetables\F3snakeyes.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F8karting.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F2sampler.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F4traffic.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F7samba.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F1tancho.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F5fellowship.h"/>
+
+    <ClInclude Include="..\..\..\source\fidgetables\F6katamari.h"/>
+
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\InputController.cpp"/>
@@ -257,6 +273,22 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <ClCompile Include="..\..\..\source\SwipeCarouselController.cpp"/>
 
     <ClCompile Include="..\..\..\source\main.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F5fellowship.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F6katamari.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F3snakeyes.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F7samba.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F4traffic.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F1tancho.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F2sampler.cpp"/>
+
+    <ClCompile Include="..\..\..\source\fidgetables\F8karting.cpp"/>
 
   </ItemGroup>
   <ItemGroup>

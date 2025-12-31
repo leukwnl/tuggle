@@ -1,10 +1,6 @@
 //
 //  InputController.cpp
-//  Game
 //
-//  This input controller manages all input for the game including keyboard,
-//  mouse, touch, and gestures. It provides a unified interface for handling
-//  different input methods across platforms.
 //
 
 #include "InputController.h"

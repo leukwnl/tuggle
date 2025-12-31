@@ -27,10 +27,8 @@
 //  Author: Luke Leh
 //  Version: 12/8/25
 
-// Include your application class
 #include "FidgetApp.h"
 
-// This keeps us from having to write cugl:: all the time
 using namespace cugl;
 
 // These really only apply if the game is windowed (not on mobile device)
@@ -47,18 +45,11 @@ using namespace cugl;
  * @return the exit status of the application
  */
 int main(int argc, char * argv[]) {
-    // Change this to your application class
     FidgetApp app;
     
     /// SET YOUR APPLICATION PROPERTIES
-    
-    // The unique application name
     app.setName("Tuggle");
-    
-    // The name of your studio (for organizing save files)
     app.setOrganization("Innate Studios");
-    
-    // Set the window properties (Only applies to OS X/Windows Desktop)
     app.setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
     app.setFPS(60.0f);
     app.setHighDPI(true);

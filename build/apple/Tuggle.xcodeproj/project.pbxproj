@@ -7,22 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		184ED4F92EE8CC280085B3D0 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */; };
-		184ED4FA2EE8CC280085B3D0 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F72EE8CC280085B3D0 /* F8karting.cpp */; };
-		184ED4FB2EE8CC280085B3D0 /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */; };
-		184ED4FC2EE8CC280085B3D0 /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F52EE8CC280085B3D0 /* F7samba.cpp */; };
-		184ED4FD2EE8CC280085B3D0 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */; };
-		184ED4FE2EE8CC280085B3D0 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */; };
-		184ED4FF2EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */; };
-		184ED5002EE8CC280085B3D0 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */; };
-		184ED5012EE8CC280085B3D0 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */; };
-		184ED5022EE8CC280085B3D0 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F72EE8CC280085B3D0 /* F8karting.cpp */; };
-		184ED5032EE8CC280085B3D0 /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */; };
-		184ED5042EE8CC280085B3D0 /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F52EE8CC280085B3D0 /* F7samba.cpp */; };
-		184ED5052EE8CC280085B3D0 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */; };
-		184ED5062EE8CC280085B3D0 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */; };
-		184ED5072EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */; };
-		184ED5082EE8CC280085B3D0 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */; };
+		184ED53E2F04916C0085B3D0 /* HapticButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED53D2F04916C0085B3D0 /* HapticButton.cpp */; };
+		184ED53F2F04916C0085B3D0 /* HapticButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184ED53D2F04916C0085B3D0 /* HapticButton.cpp */; };
 		AB084F9D0E7DEE813F658313 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = AACD441E407C552AECEE9B33 /* textures */; };
 		ABBCECE05884D7F0EED5F50D /* json in Resources */ = {isa = PBXBuildFile; fileRef = AA1BA6EDE03659A8C6BB7FDA /* json */; };
 		ABEB4F30ABE79246F2AF327A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = AACD79EE60E78EEA58EF7CC9 /* fonts */; };
@@ -30,14 +16,30 @@
 		AC2EB3AC451FF1B57CEECEE3 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = AACD79EE60E78EEA58EF7CC9 /* fonts */; };
 		ACDAB563BDDE187B5BC53C62 /* json in Resources */ = {isa = PBXBuildFile; fileRef = AA1BA6EDE03659A8C6BB7FDA /* json */; };
 		BB0C5A5D28A65554CEF76EE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA74D663E7C15A3342E7A1F8 /* main.cpp */; };
+		BB6C6B9FBBF8A58EE7C6A9B5 /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6D2B2DFCC319DB12EAED /* F4traffic.cpp */; };
 		BB7BCBEF7D9B95ACCBCD93A1 /* FidgetApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA022E8353ED6FBDEB472EC6 /* FidgetApp.cpp */; };
+		BB7FDB6F500165F806109AE3 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD235265C7693BCAC1AE3C3 /* F5fellowship.cpp */; };
+		BB9ED15A5C8FD6CDF0D9D6CE /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BADDC9E7FD9B6ADF346DAAE1 /* F8karting.cpp */; };
+		BBAC294D90DE4BCD948FFB8B /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA8C3DAB9F3A2E5B735E6CA6 /* F6katamari.cpp */; };
+		BBB8FBFBF1FBFCEAFB0F3CDB /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFB50BD0DE264191CD129D0 /* F7samba.cpp */; };
+		BBCF590CECE90BA5EE6AADD2 /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA04AE879B36FD52BA9DDDB4 /* F1tancho.cpp */; };
+		BBCFC0FCCAFDF2EDD613DAB7 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AC3767ECF3ECC64812F1 /* F3snakeyes.cpp */; };
 		BBE3FCF6D3DDCA82CABE21AB /* InputController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAF1FD7E13A92DBFCFC0BB0B /* InputController.cpp */; };
 		BBEB7F91FDDBC4F7D67CDB76 /* FidgetableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9FAC0D6FAEBC2C4D71ABEF /* FidgetableView.cpp */; };
+		BBEC15FAD15CFE6CBD7CDB09 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E5B4FEA0F2ACCEC3FD92 /* F2sampler.cpp */; };
 		BBF60F12DBFDFA4EBA88AD6F /* SwipeCarouselController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA6304BA0BCEEEBCDA71EDEF /* SwipeCarouselController.cpp */; };
 		BC1BA06BBD42FF24AB5B0AF5 /* InputController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAF1FD7E13A92DBFCFC0BB0B /* InputController.cpp */; };
+		BC415FC0B61DE5ACBB9CD639 /* F2sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E5B4FEA0F2ACCEC3FD92 /* F2sampler.cpp */; };
+		BC5FBBDBF8F7456C14ABEB4E /* F6katamari.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA8C3DAB9F3A2E5B735E6CA6 /* F6katamari.cpp */; };
 		BC5FDE54BC9D22BD66C2FF7C /* FidgetApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA022E8353ED6FBDEB472EC6 /* FidgetApp.cpp */; };
 		BC6E3B58AED5F38C17FA6FE3 /* SwipeCarouselController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA6304BA0BCEEEBCDA71EDEF /* SwipeCarouselController.cpp */; };
+		BC98E4E3BCFFBF4A59E4EA3B /* F1tancho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA04AE879B36FD52BA9DDDB4 /* F1tancho.cpp */; };
 		BC98F44CAECC5CA61B5E4CAC /* FidgetableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9FAC0D6FAEBC2C4D71ABEF /* FidgetableView.cpp */; };
+		BC9A1822D8E5F73A72A4F9C2 /* F5fellowship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD235265C7693BCAC1AE3C3 /* F5fellowship.cpp */; };
+		BCA1335B5F7C4BC7AC4E0D11 /* F8karting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BADDC9E7FD9B6ADF346DAAE1 /* F8karting.cpp */; };
+		BCA54130C02BDB4CBF4ABDAA /* F4traffic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6D2B2DFCC319DB12EAED /* F4traffic.cpp */; };
+		BCB4EB365C5F1B043B353E27 /* F3snakeyes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AC3767ECF3ECC64812F1 /* F3snakeyes.cpp */; };
+		BCC9F1DB66F2D8FB5B272D8E /* F7samba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFB50BD0DE264191CD129D0 /* F7samba.cpp */; };
 		BCFAAB022CD9CD93B6D5BD01 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA74D663E7C15A3342E7A1F8 /* main.cpp */; };
 		EB0F3CB827FB9FD40037CC66 /* Mac.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F3CB327FB9FD40037CC66 /* Mac.xcassets */; };
 		EB0F3CD527FBA2190037CC66 /* ForceFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0F3CC727FBA2180037CC66 /* ForceFeedback.framework */; };
@@ -166,34 +168,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		184ED4E82EE8CC280085B3D0 /* F1tancho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F1tancho.h; sourceTree = "<group>"; };
-		184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F1tancho.cpp; sourceTree = "<group>"; };
-		184ED4EA2EE8CC280085B3D0 /* F2sampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F2sampler.h; sourceTree = "<group>"; };
-		184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F2sampler.cpp; sourceTree = "<group>"; };
-		184ED4EC2EE8CC280085B3D0 /* F3snakeyes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F3snakeyes.h; sourceTree = "<group>"; };
-		184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F3snakeyes.cpp; sourceTree = "<group>"; };
-		184ED4EE2EE8CC280085B3D0 /* F4traffic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F4traffic.h; sourceTree = "<group>"; };
-		184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F4traffic.cpp; sourceTree = "<group>"; };
-		184ED4F02EE8CC280085B3D0 /* F5fellowship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F5fellowship.h; sourceTree = "<group>"; };
-		184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F5fellowship.cpp; sourceTree = "<group>"; };
-		184ED4F22EE8CC280085B3D0 /* F6katamari.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F6katamari.h; sourceTree = "<group>"; };
-		184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F6katamari.cpp; sourceTree = "<group>"; };
-		184ED4F42EE8CC280085B3D0 /* F7samba.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F7samba.h; sourceTree = "<group>"; };
-		184ED4F52EE8CC280085B3D0 /* F7samba.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F7samba.cpp; sourceTree = "<group>"; };
-		184ED4F62EE8CC280085B3D0 /* F8karting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F8karting.h; sourceTree = "<group>"; };
-		184ED4F72EE8CC280085B3D0 /* F8karting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = F8karting.cpp; sourceTree = "<group>"; };
+		184ED53C2F04916C0085B3D0 /* HapticButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HapticButton.h; sourceTree = "<group>"; };
+		184ED53D2F04916C0085B3D0 /* HapticButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HapticButton.cpp; sourceTree = "<group>"; };
 		AA1BA6EDE03659A8C6BB7FDA /* json */ = {isa = PBXFileReference; lastKnownFileType = folder; path = json; sourceTree = "<group>"; };
 		AACD441E407C552AECEE9B33 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
 		AACD79EE60E78EEA58EF7CC9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		BA01C2AFC2CEB4FCB708DBA8 /* F2sampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F2sampler.h; sourceTree = "<group>"; };
 		BA022E8353ED6FBDEB472EC6 /* FidgetApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FidgetApp.cpp; sourceTree = "<group>"; };
+		BA04AE879B36FD52BA9DDDB4 /* F1tancho.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F1tancho.cpp; sourceTree = "<group>"; };
+		BA186DA036E016C340AEABAF /* F3snakeyes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3snakeyes.h; sourceTree = "<group>"; };
 		BA6304BA0BCEEEBCDA71EDEF /* SwipeCarouselController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwipeCarouselController.cpp; sourceTree = "<group>"; };
+		BA67CBB1D9FC3CB58E23F8FA /* F7samba.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F7samba.h; sourceTree = "<group>"; };
 		BA74D663E7C15A3342E7A1F8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BA777BE39EC0DD2D2279252C /* F8karting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F8karting.h; sourceTree = "<group>"; };
+		BA7DAFB786B3033001DE8984 /* F4traffic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F4traffic.h; sourceTree = "<group>"; };
+		BA8C3DAB9F3A2E5B735E6CA6 /* F6katamari.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F6katamari.cpp; sourceTree = "<group>"; };
+		BA9C6D2B2DFCC319DB12EAED /* F4traffic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F4traffic.cpp; sourceTree = "<group>"; };
 		BA9FAC0D6FAEBC2C4D71ABEF /* FidgetableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FidgetableView.cpp; sourceTree = "<group>"; };
 		BAA5BDF05FF2E6AD31DB32EE /* SwipeCarouselController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeCarouselController.h; sourceTree = "<group>"; };
+		BAAEA0AEAA6AE84AFCD54A34 /* F1tancho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1tancho.h; sourceTree = "<group>"; };
+		BAC6AC3767ECF3ECC64812F1 /* F3snakeyes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F3snakeyes.cpp; sourceTree = "<group>"; };
 		BACCFFB3D3D1F94F5EFAB644 /* FidgetableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FidgetableView.h; sourceTree = "<group>"; };
+		BACEFBBF5259F04B0B7B5DA1 /* F5fellowship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F5fellowship.h; sourceTree = "<group>"; };
+		BAD235265C7693BCAC1AE3C3 /* F5fellowship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F5fellowship.cpp; sourceTree = "<group>"; };
+		BADDC9E7FD9B6ADF346DAAE1 /* F8karting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F8karting.cpp; sourceTree = "<group>"; };
+		BAE6BBD6AE4EAFBD9B6D65EC /* F6katamari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F6katamari.h; sourceTree = "<group>"; };
 		BAEDED600B138CEC5AFFF3DB /* FidgetApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FidgetApp.h; sourceTree = "<group>"; };
 		BAF1FD7E13A92DBFCFC0BB0B /* InputController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputController.cpp; sourceTree = "<group>"; };
 		BAF58FAECACE8E1675ECEF62 /* InputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
+		BAF7E5B4FEA0F2ACCEC3FD92 /* F2sampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F2sampler.cpp; sourceTree = "<group>"; };
+		BAFB50BD0DE264191CD129D0 /* F7samba.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = F7samba.cpp; sourceTree = "<group>"; };
 		EB0F3C9627FB9DCB0037CC66 /* Tuggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F3CB027FB9FD40037CC66 /* Landscape.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Landscape.storyboard; sourceTree = "<group>"; };
 		EB0F3CB127FB9FD40037CC66 /* iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = iOS.xcassets; sourceTree = "<group>"; };
@@ -300,25 +304,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		184ED4F82EE8CC280085B3D0 /* fidgetables */ = {
+		CD8BDC440556A5569B9EE7F4 /* fidgetables */ = {
 			isa = PBXGroup;
 			children = (
-				184ED4E82EE8CC280085B3D0 /* F1tancho.h */,
-				184ED4E92EE8CC280085B3D0 /* F1tancho.cpp */,
-				184ED4EA2EE8CC280085B3D0 /* F2sampler.h */,
-				184ED4EB2EE8CC280085B3D0 /* F2sampler.cpp */,
-				184ED4EC2EE8CC280085B3D0 /* F3snakeyes.h */,
-				184ED4ED2EE8CC280085B3D0 /* F3snakeyes.cpp */,
-				184ED4EE2EE8CC280085B3D0 /* F4traffic.h */,
-				184ED4EF2EE8CC280085B3D0 /* F4traffic.cpp */,
-				184ED4F02EE8CC280085B3D0 /* F5fellowship.h */,
-				184ED4F12EE8CC280085B3D0 /* F5fellowship.cpp */,
-				184ED4F22EE8CC280085B3D0 /* F6katamari.h */,
-				184ED4F32EE8CC280085B3D0 /* F6katamari.cpp */,
-				184ED4F42EE8CC280085B3D0 /* F7samba.h */,
-				184ED4F52EE8CC280085B3D0 /* F7samba.cpp */,
-				184ED4F62EE8CC280085B3D0 /* F8karting.h */,
-				184ED4F72EE8CC280085B3D0 /* F8karting.cpp */,
+				184ED53C2F04916C0085B3D0 /* HapticButton.h */,
+				184ED53D2F04916C0085B3D0 /* HapticButton.cpp */,
+				BAD235265C7693BCAC1AE3C3 /* F5fellowship.cpp */,
+				BA8C3DAB9F3A2E5B735E6CA6 /* F6katamari.cpp */,
+				BAC6AC3767ECF3ECC64812F1 /* F3snakeyes.cpp */,
+				BAFB50BD0DE264191CD129D0 /* F7samba.cpp */,
+				BA9C6D2B2DFCC319DB12EAED /* F4traffic.cpp */,
+				BA04AE879B36FD52BA9DDDB4 /* F1tancho.cpp */,
+				BAF7E5B4FEA0F2ACCEC3FD92 /* F2sampler.cpp */,
+				BADDC9E7FD9B6ADF346DAAE1 /* F8karting.cpp */,
+				BA186DA036E016C340AEABAF /* F3snakeyes.h */,
+				BA777BE39EC0DD2D2279252C /* F8karting.h */,
+				BA01C2AFC2CEB4FCB708DBA8 /* F2sampler.h */,
+				BA7DAFB786B3033001DE8984 /* F4traffic.h */,
+				BA67CBB1D9FC3CB58E23F8FA /* F7samba.h */,
+				BAAEA0AEAA6AE84AFCD54A34 /* F1tancho.h */,
+				BACEFBBF5259F04B0B7B5DA1 /* F5fellowship.h */,
+				BAE6BBD6AE4EAFBD9B6D65EC /* F6katamari.h */,
 			);
 			path = fidgetables;
 			sourceTree = "<group>";
@@ -347,7 +353,6 @@
 		EB0F3C9827FB9DCB0037CC66 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				184ED4F82EE8CC280085B3D0 /* fidgetables */,
 				BAF1FD7E13A92DBFCFC0BB0B /* InputController.cpp */,
 				BA9FAC0D6FAEBC2C4D71ABEF /* FidgetableView.cpp */,
 				BA022E8353ED6FBDEB472EC6 /* FidgetApp.cpp */,
@@ -357,6 +362,7 @@
 				BAF58FAECACE8E1675ECEF62 /* InputController.h */,
 				BACCFFB3D3D1F94F5EFAB644 /* FidgetableView.h */,
 				BAA5BDF05FF2E6AD31DB32EE /* SwipeCarouselController.h */,
+				CD8BDC440556A5569B9EE7F4 /* fidgetables */,
 			);
 			name = Source;
 			path = ../../source;
@@ -648,15 +654,16 @@
 				BBEB7F91FDDBC4F7D67CDB76 /* FidgetableView.cpp in Sources */,
 				BB7BCBEF7D9B95ACCBCD93A1 /* FidgetApp.cpp in Sources */,
 				BBF60F12DBFDFA4EBA88AD6F /* SwipeCarouselController.cpp in Sources */,
-				184ED5012EE8CC280085B3D0 /* F2sampler.cpp in Sources */,
-				184ED5022EE8CC280085B3D0 /* F8karting.cpp in Sources */,
-				184ED5032EE8CC280085B3D0 /* F6katamari.cpp in Sources */,
-				184ED5042EE8CC280085B3D0 /* F7samba.cpp in Sources */,
-				184ED5052EE8CC280085B3D0 /* F1tancho.cpp in Sources */,
-				184ED5062EE8CC280085B3D0 /* F5fellowship.cpp in Sources */,
-				184ED5072EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */,
-				184ED5082EE8CC280085B3D0 /* F4traffic.cpp in Sources */,
 				BB0C5A5D28A65554CEF76EE4 /* main.cpp in Sources */,
+				BB7FDB6F500165F806109AE3 /* F5fellowship.cpp in Sources */,
+				BBAC294D90DE4BCD948FFB8B /* F6katamari.cpp in Sources */,
+				BBCFC0FCCAFDF2EDD613DAB7 /* F3snakeyes.cpp in Sources */,
+				184ED53F2F04916C0085B3D0 /* HapticButton.cpp in Sources */,
+				BBB8FBFBF1FBFCEAFB0F3CDB /* F7samba.cpp in Sources */,
+				BB6C6B9FBBF8A58EE7C6A9B5 /* F4traffic.cpp in Sources */,
+				BBCF590CECE90BA5EE6AADD2 /* F1tancho.cpp in Sources */,
+				BBEC15FAD15CFE6CBD7CDB09 /* F2sampler.cpp in Sources */,
+				BB9ED15A5C8FD6CDF0D9D6CE /* F8karting.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,15 +675,16 @@
 				BC98F44CAECC5CA61B5E4CAC /* FidgetableView.cpp in Sources */,
 				BC5FDE54BC9D22BD66C2FF7C /* FidgetApp.cpp in Sources */,
 				BC6E3B58AED5F38C17FA6FE3 /* SwipeCarouselController.cpp in Sources */,
-				184ED4F92EE8CC280085B3D0 /* F2sampler.cpp in Sources */,
-				184ED4FA2EE8CC280085B3D0 /* F8karting.cpp in Sources */,
-				184ED4FB2EE8CC280085B3D0 /* F6katamari.cpp in Sources */,
-				184ED4FC2EE8CC280085B3D0 /* F7samba.cpp in Sources */,
-				184ED4FD2EE8CC280085B3D0 /* F1tancho.cpp in Sources */,
-				184ED4FE2EE8CC280085B3D0 /* F5fellowship.cpp in Sources */,
-				184ED4FF2EE8CC280085B3D0 /* F3snakeyes.cpp in Sources */,
-				184ED5002EE8CC280085B3D0 /* F4traffic.cpp in Sources */,
 				BCFAAB022CD9CD93B6D5BD01 /* main.cpp in Sources */,
+				BC9A1822D8E5F73A72A4F9C2 /* F5fellowship.cpp in Sources */,
+				BC5FBBDBF8F7456C14ABEB4E /* F6katamari.cpp in Sources */,
+				BCB4EB365C5F1B043B353E27 /* F3snakeyes.cpp in Sources */,
+				184ED53E2F04916C0085B3D0 /* HapticButton.cpp in Sources */,
+				BCC9F1DB66F2D8FB5B272D8E /* F7samba.cpp in Sources */,
+				BCA54130C02BDB4CBF4ABDAA /* F4traffic.cpp in Sources */,
+				BC98E4E3BCFFBF4A59E4EA3B /* F1tancho.cpp in Sources */,
+				BC415FC0B61DE5ACBB9CD639 /* F2sampler.cpp in Sources */,
+				BCA1335B5F7C4BC7AC4E0D11 /* F8karting.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,6 +931,7 @@
 					"$(DATACH_INCLUDES)",
 				);
 				INFOPLIST_FILE = Resources/ios.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tuggle for CUGL";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Portrait;
 				INFOPLIST_KEY_UIMainStoryboardFile = Portrait;
@@ -934,7 +943,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.gdiac.fidget.ios.G4EBEX69;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeleh.tuggle;
 				PRODUCT_NAME = Tuggle;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -966,6 +975,7 @@
 					"$(DATACH_INCLUDES)",
 				);
 				INFOPLIST_FILE = Resources/ios.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tuggle for CUGL";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Portrait;
 				INFOPLIST_KEY_UIMainStoryboardFile = Portrait;
@@ -977,7 +987,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.gdiac.fidget.ios.G4EBEX69;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukeleh.tuggle;
 				PRODUCT_NAME = Tuggle;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

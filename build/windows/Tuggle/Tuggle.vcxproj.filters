@@ -9,6 +9,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\fidgetables">
+      <UniqueIdentifier>{CD36D7C2-29F2-5255-808F-483E335B4A72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -26,6 +29,30 @@
     <ClInclude Include="..\..\..\source\SwipeCarouselController.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F3snakeyes.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F8karting.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F2sampler.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F4traffic.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F7samba.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F1tancho.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F5fellowship.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\fidgetables\F6katamari.h">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\InputController.cpp">
@@ -42,6 +69,30 @@
     </ClCompile>
     <ClCompile Include="..\..\..\source\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F5fellowship.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F6katamari.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F3snakeyes.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F7samba.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F4traffic.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F1tancho.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F2sampler.cpp">
+      <Filter>Source Files\fidgetables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\fidgetables\F8karting.cpp">
+      <Filter>Source Files\fidgetables</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

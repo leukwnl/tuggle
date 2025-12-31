@@ -3,7 +3,6 @@
 //  Tuggle
 //
 //  Implementation of the horizontal carousel controller.
-//  Uses InputController for unified pointer input.
 //
 
 #include "SwipeCarouselController.h"
@@ -92,9 +91,6 @@ void SwipeCarouselController::dispose() {
 void SwipeCarouselController::buildFidgetables() {
   Size pageSize(_pageWidth, _pageHeight);
 
-  // Create each fidgetable as its own class type
-  // This allows for future customization of each toy
-
   // Fidgetable 1
   auto f1 = F1tancho::alloc(pageSize);
   f1->getNode()->setPosition(Vec2(0 * _pageWidth, 0));
@@ -161,16 +157,23 @@ void SwipeCarouselController::update(float timestep) {
   // Get the input controller
   InputController *input = InputController::getInstance();
 
-  // Handle drag start
-  if (input->didDragStart() && !_isDragging) {
+  // Check if active fidgetable is being interacted with
+  bool fidgetableInteracting = false;
+  auto activeFidgetable = getActiveFidgetable();
+  if (activeFidgetable != nullptr) {
+    fidgetableInteracting = activeFidgetable->isInteracting();
+  }
+
+  // Handle drag start (only if fidgetable is not being interacted with)
+  if (input->didDragStart() && !_isDragging && !fidgetableInteracting) {
     _isDragging = true;
     _isSnapping = false; // Cancel any ongoing snap animation
     _scrollStartPos = _scrollPos;
     _dragStartPos = screenToScene(input->getStartPosition());
   }
 
-  // Handle ongoing drag
-  if (_isDragging && input->isDragging()) {
+  // Handle ongoing drag (skip if fidgetable took over interaction)
+  if (_isDragging && input->isDragging() && !fidgetableInteracting) {
     Vec2 currentPos = screenToScene(input->getPosition());
 
     // Calculate drag delta from start position
@@ -185,6 +188,14 @@ void SwipeCarouselController::update(float timestep) {
 
     // Update active page during drag
     updateActivePage();
+  }
+
+  // Cancel carousel drag if fidgetable took over interaction
+  if (_isDragging && fidgetableInteracting) {
+    _isDragging = false;
+    // Snap back to nearest page since we were interrupted
+    int targetPage = calculateSnapTarget(0);
+    startSnapAnimation(targetPage);
   }
 
   // Handle drag end
@@ -282,7 +293,6 @@ void SwipeCarouselController::startSnapAnimation(int targetPage) {
 }
 
 float SwipeCarouselController::easeOutCubic(float t) {
-  // Ease out cubic: f(t) = 1 - (1-t)^3
   float inv = 1.0f - t;
   return 1.0f - (inv * inv * inv);
 }

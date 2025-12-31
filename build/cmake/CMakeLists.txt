@@ -110,7 +110,9 @@ endif()
 # Add the source code
 file(GLOB SOURCE_FILES
     ${PROJECT_SOURCE_DIR}/../../source/*.cpp
-    ${PROJECT_SOURCE_DIR}/../../source/*.h)
+    ${PROJECT_SOURCE_DIR}/../../source/*.h
+    ${PROJECT_SOURCE_DIR}/../../source/fidgetables/*.cpp
+    ${PROJECT_SOURCE_DIR}/../../source/fidgetables/*.h)
 
 # Build and link
 add_executable(Tuggle ${SOURCE_FILES})

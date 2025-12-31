@@ -56,7 +56,9 @@ list(APPEND EXTRA_LIBS SDL2_pckg)
 # Add the source code
 file(GLOB SOURCE_FILES
     ${PROJECT_SOURCE_DIR}/../../../../../source/*.cpp
-    ${PROJECT_SOURCE_DIR}/../../../../../source/*.h)
+    ${PROJECT_SOURCE_DIR}/../../../../../source/*.h
+    ${PROJECT_SOURCE_DIR}/../../../../../source/fidgetables/*.cpp
+    ${PROJECT_SOURCE_DIR}/../../../../../source/fidgetables/*.h)
 
 # Build and link
 set(ANDROID_LIBS GLESv1_CM GLESv2 GLESv3 log android)

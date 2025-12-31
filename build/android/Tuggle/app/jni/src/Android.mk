@@ -20,6 +20,7 @@ LOCAL_C_INCLUDES += $(CUGL_PATH)/external/libdatachannel/include
 LOCAL_C_INCLUDES += $(CUGL_PATH)/external/box2d/include
 LOCAL_C_INCLUDES += $(CUGL_PATH)/external/poly2tri
 LOCAL_C_INCLUDES += $(PROJ_PATH)/source
+LOCAL_C_INCLUDES += $(PROJ_PATH)/source/fidgetables
 
 
 # Add your application source files here.
@@ -29,7 +30,15 @@ LOCAL_SRC_FILES := $(subst $(LOCAL_PATH)/,, \
 	$(LOCAL_PATH)/source/FidgetableView.cpp \
 	$(LOCAL_PATH)/source/FidgetApp.cpp \
 	$(LOCAL_PATH)/source/SwipeCarouselController.cpp \
-	$(LOCAL_PATH)/source/main.cpp)
+	$(LOCAL_PATH)/source/main.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F5fellowship.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F6katamari.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F3snakeyes.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F7samba.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F4traffic.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F1tancho.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F2sampler.cpp \
+	$(LOCAL_PATH)/source/fidgetables/F8karting.cpp)
 
 # Link in SDL2
 LOCAL_SHARED_LIBRARIES := SDL2

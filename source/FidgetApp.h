@@ -2,7 +2,7 @@
 //  FidgetApp.h
 //  Tuggle
 //
-//  Main application class for the Fidgetable carousel app.
+//  Main application class for the Fidgetable app.
 //  Manages the carousel of interactive toys that users can swipe through.
 //
 

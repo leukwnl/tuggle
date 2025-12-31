@@ -49,6 +49,9 @@ protected:
     /** Whether this fidgetable is currently active (centered in carousel) */
     bool _isActive;
     
+    /** Whether this fidgetable is currently being interacted with (blocks carousel swiping) */
+    bool _isInteracting;
+    
     /** The size of the page (typically screen size) */
     cugl::Size _pageSize;
     
@@ -129,6 +132,14 @@ public:
      * @return true if active
      */
     bool isActive() const { return _isActive; }
+    
+    /**
+     * Returns whether this fidgetable is currently being interacted with.
+     * When true, carousel swiping should be suspended.
+     * 
+     * @return true if user is interacting with this fidgetable
+     */
+    bool isInteracting() const { return _isInteracting; }
     
     /**
      * Returns the index of this fidgetable.
