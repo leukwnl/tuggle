@@ -2,7 +2,7 @@
 //  F10throttle.cpp
 //  Tuggle
 //
-//  Realistic car simulator with button-based shifting and pedal throttle.
+//  Tenth Tuggable: Realistic car simulator with button-based shifting and pedal throttle.
 //  Demonstrates HapticPlayer for continuous haptic feedback.
 //
 
@@ -33,19 +33,23 @@ F10throttle::F10throttle()
 
 F10throttle::~F10throttle() { dispose(); }
 
-bool F10throttle::init(int index, const Size &pageSize) {
+bool F10throttle::init(int index, const Size &pageSize)
+{
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F10throttle> F10throttle::alloc(const Size &pageSize) {
+std::shared_ptr<F10throttle> F10throttle::alloc(const Size &pageSize)
+{
   auto result = std::make_shared<F10throttle>();
-  if (result->init(10, pageSize)) {
+  if (result->init(10, pageSize))
+  {
     return result;
   }
   return nullptr;
 }
 
-void F10throttle::dispose() {
+void F10throttle::dispose()
+{
   stopEngine();
   if (_shiftUpButton)
     _shiftUpButton->deactivate();
@@ -57,20 +61,23 @@ void F10throttle::dispose() {
 }
 
 std::shared_ptr<PolygonNode> F10throttle::createCircle(float radius,
-                                                       Color4 color) {
+                                                       Color4 color)
+{
   constexpr int segments = 48;
   std::vector<Vec2> vertices;
   vertices.reserve(segments + 2);
   vertices.push_back(Vec2::ZERO);
 
-  for (int i = 0; i <= segments; i++) {
+  for (int i = 0; i <= segments; i++)
+  {
     float angle = (float)i / (float)segments * 2.0f * M_PI;
     vertices.push_back(Vec2(radius * cosf(angle), radius * sinf(angle)));
   }
 
   std::vector<Uint32> indices;
   indices.reserve(segments * 3);
-  for (int i = 1; i <= segments; i++) {
+  for (int i = 1; i <= segments; i++)
+  {
     indices.push_back(0);
     indices.push_back(i);
     indices.push_back(i + 1);
@@ -83,7 +90,8 @@ std::shared_ptr<PolygonNode> F10throttle::createCircle(float radius,
 }
 
 std::shared_ptr<PolygonNode> F10throttle::createRect(float width, float height,
-                                                     Color4 color) {
+                                                     Color4 color)
+{
   std::vector<Vec2> vertices = {Vec2(0, 0), Vec2(width, 0), Vec2(width, height),
                                 Vec2(0, height)};
   std::vector<Uint32> indices = {0, 1, 2, 0, 2, 3};
@@ -94,7 +102,8 @@ std::shared_ptr<PolygonNode> F10throttle::createRect(float width, float height,
   return node;
 }
 
-void F10throttle::buildContent() {
+void F10throttle::buildContent()
+{
   buildGauge();
   buildGearControls();
   buildThrottlePedal();
@@ -104,7 +113,8 @@ void F10throttle::buildContent() {
   _isStalled = false;
 }
 
-void F10throttle::buildGauge() {
+void F10throttle::buildGauge()
+{
   Vec2 center(_pageSize.width / 2, _pageSize.height * GAUGE_CENTER_Y_RATIO);
   float radius = _pageSize.width * GAUGE_RADIUS_RATIO;
 
@@ -116,7 +126,8 @@ void F10throttle::buildGauge() {
   int numTicks = 11; // 0%, 10%, 20%, ... 100%
   float tickInnerRadius = radius * 0.75f;
 
-  for (int i = 0; i <= numTicks; i++) {
+  for (int i = 0; i <= numTicks; i++)
+  {
     float t = (float)i / (float)numTicks;
     float angle = startAngle - t * angleRange;
 
@@ -151,7 +162,8 @@ void F10throttle::buildGauge() {
   _rootNode->addChild(hub);
 }
 
-void F10throttle::buildGearControls() {
+void F10throttle::buildGearControls()
+{
   float centerX = _pageSize.width / 2;
   float controlsY = _pageSize.height * 0.40f;
 
@@ -162,7 +174,8 @@ void F10throttle::buildGearControls() {
   float totalWidth = 5 * barWidth + 4 * (barSpacing - barWidth);
   float startX = centerX - totalWidth / 2 + barWidth / 2;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 5; i++)
+  {
     auto bar = createRect(barWidth, barHeight, GEAR_INACTIVE_COLOR);
     bar->setPosition(Vec2(startX + i * barSpacing, controlsY + barHeight * 2));
     _gearBars[i] = bar;
@@ -193,11 +206,11 @@ void F10throttle::buildGearControls() {
       Vec2(centerX - buttonSpacing, controlsY - barHeight * 3.5f));
   _shiftDownButton->setName("f10_shift_down");
 
-  _shiftDownButton->addListener([this](const std::string &name, bool down) {
+  _shiftDownButton->addListener([this](const std::string &name, bool down)
+                                {
     if (_isActive && down) {
       shiftDown();
-    }
-  });
+    } });
   _rootNode->addChild(_shiftDownButton);
 
   // Down arrow on button
@@ -224,11 +237,11 @@ void F10throttle::buildGearControls() {
       Vec2(centerX + buttonSpacing, controlsY - barHeight * 3.5f));
   _shiftUpButton->setName("f10_shift_up");
 
-  _shiftUpButton->addListener([this](const std::string &name, bool down) {
+  _shiftUpButton->addListener([this](const std::string &name, bool down)
+                              {
     if (_isActive && down) {
       shiftUp();
-    }
-  });
+    } });
   _rootNode->addChild(_shiftUpButton);
 
   // Up arrow on button
@@ -243,7 +256,8 @@ void F10throttle::buildGearControls() {
   _rootNode->addChild(upArrow);
 }
 
-void F10throttle::buildThrottlePedal() {
+void F10throttle::buildThrottlePedal()
+{
   // Rectangular pedal at the bottom
   float pedalWidth = _pageSize.width * 0.35f;
   float pedalHeight = _pageSize.height * 0.12f;
@@ -259,7 +273,8 @@ void F10throttle::buildThrottlePedal() {
   _throttleButton->setPosition(pedalPos);
   _throttleButton->setName("f10_throttle");
 
-  _throttleButton->addListener([this](const std::string &name, bool down) {
+  _throttleButton->addListener([this](const std::string &name, bool down)
+                               {
     if (_isActive) {
       bool wasThrottling = _isThrottling;
       _isThrottling = down;
@@ -279,54 +294,58 @@ void F10throttle::buildThrottlePedal() {
         // Throttle released - engine settling back
         Haptics::transient(0.4f, 0.15f);
       }
-    }
-  });
+    } });
 
   _rootNode->addChild(_throttleButton);
 
   // Pedal texture lines
   int numLines = 5;
   float lineSpacing = pedalWidth / (numLines + 1);
-  for (int i = 1; i <= numLines; i++) {
+  for (int i = 1; i <= numLines; i++)
+  {
     auto line = createRect(3.0f, pedalHeight * 0.6f, Color4(40, 40, 45, 255));
     line->setPosition(pedalPos + Vec2(-pedalWidth / 2 + i * lineSpacing, 0));
     _rootNode->addChild(line);
   }
 }
 
-float F10throttle::getMaxRPMForGear(Gear gear) {
-  switch (gear) {
+float F10throttle::getMaxRPMForGear(Gear gear)
+{
+  switch (gear)
+  {
   case Gear::NEUTRAL:
-    return 3000.0f;
-  case Gear::GEAR_1:
     return 5000.0f;
-  case Gear::GEAR_2:
+  case Gear::GEAR_1:
     return 7000.0f;
-  case Gear::GEAR_3:
+  case Gear::GEAR_2:
     return 10000.0f;
-  case Gear::GEAR_4:
+  case Gear::GEAR_3:
     return 12500.0f;
-  case Gear::GEAR_5:
+  case Gear::GEAR_4:
     return 15000.0f;
-  case Gear::REVERSE:
+  case Gear::GEAR_5:
     return 20000.0f;
   }
   return 3000.0f;
 }
 
-float F10throttle::getShiftWindowMinRPM() {
+float F10throttle::getShiftWindowMinRPM()
+{
   // Must be in top 15% of current gear's max RPM to shift up
   float maxRPM = getMaxRPMForGear(_currentGear);
   return maxRPM * (1.0f - SHIFT_WINDOW_PERCENT);
 }
 
-bool F10throttle::isInShiftWindow() {
+bool F10throttle::isInShiftWindow()
+{
   return _currentRPM >= getShiftWindowMinRPM();
 }
 
-void F10throttle::shiftUp() {
+void F10throttle::shiftUp()
+{
   // Can't shift up from neutral without being in a gear first
-  if (_currentGear == Gear::NEUTRAL) {
+  if (_currentGear == Gear::NEUTRAL)
+  {
     // Shift to 1st from neutral - satisfying clunk into gear
     _currentGear = Gear::GEAR_1;
     Haptics::heavy();
@@ -337,14 +356,16 @@ void F10throttle::shiftUp() {
   }
 
   // Can't shift up from 5th - limiter hit
-  if (_currentGear == Gear::GEAR_5 || _currentGear == Gear::REVERSE) {
+  if (_currentGear == Gear::GEAR_5)
+  {
     Haptics::heavy();
     Haptics::transient(0.8f, 0.9f); // Sharp rejection
     return;
   }
 
   // Check if in shift window
-  if (!isInShiftWindow()) {
+  if (!isInShiftWindow())
+  {
     // STALL - shifted too early!
     stallEngine();
     return;
@@ -355,7 +376,8 @@ void F10throttle::shiftUp() {
   Gear newGear = static_cast<Gear>(currentNum + 1);
 
   // Gear-specific shift feel
-  switch (newGear) {
+  switch (newGear)
+  {
   case Gear::GEAR_2:
     Haptics::heavy();
     Haptics::buzz(0.8f, 0.25f, 0.08f);
@@ -390,28 +412,25 @@ void F10throttle::shiftUp() {
   updateHaptics();
 }
 
-void F10throttle::shiftDown() {
+void F10throttle::shiftDown()
+{
   // Can't shift down from neutral or 1st
-  if (_currentGear == Gear::NEUTRAL || _currentGear == Gear::GEAR_1) {
-    if (_currentGear == Gear::GEAR_1) {
+  if (_currentGear == Gear::NEUTRAL || _currentGear == Gear::GEAR_1)
+  {
+    if (_currentGear == Gear::GEAR_1)
+    {
       // Pop out of 1st into neutral
       _currentGear = Gear::NEUTRAL;
       Haptics::medium();
       Haptics::transient(0.5f, 0.3f);
       updateGearIndicator();
       updateHaptics();
-    } else {
+    }
+    else
+    {
       // Already in neutral - soft bump
       Haptics::transient(0.4f, 0.2f);
     }
-    return;
-  }
-
-  if (_currentGear == Gear::REVERSE) {
-    _currentGear = Gear::NEUTRAL;
-    Haptics::medium();
-    updateGearIndicator();
-    updateHaptics();
     return;
   }
 
@@ -437,7 +456,8 @@ void F10throttle::shiftDown() {
   updateHaptics();
 }
 
-void F10throttle::stallEngine() {
+void F10throttle::stallEngine()
+{
   _isStalled = true;
   _engineRunning = false;
   _currentRPM = 0.0f;
@@ -458,7 +478,8 @@ void F10throttle::stallEngine() {
   Haptics::buzz(0.7f, 0.2f, 0.2f);
 
   // Visual - flash gear indicator red
-  if (_gearIndicator) {
+  if (_gearIndicator)
+  {
     _gearIndicator->setColor(STALL_COLOR);
   }
 
@@ -467,7 +488,8 @@ void F10throttle::stallEngine() {
   updateGearIndicator();
 }
 
-void F10throttle::startEngine() {
+void F10throttle::startEngine()
+{
   if (_engineRunning)
     return;
 
@@ -487,7 +509,8 @@ void F10throttle::startEngine() {
   updateGearIndicator();
 }
 
-void F10throttle::stopEngine() {
+void F10throttle::stopEngine()
+{
   if (!_engineRunning)
     return;
 
@@ -496,10 +519,12 @@ void F10throttle::stopEngine() {
   _enginePlayer.stop();
 }
 
-void F10throttle::updateGearIndicator() {
+void F10throttle::updateGearIndicator()
+{
   // Update gear bars
   int gearNum = 0;
-  switch (_currentGear) {
+  switch (_currentGear)
+  {
   case Gear::GEAR_1:
     gearNum = 1;
     break;
@@ -520,17 +545,21 @@ void F10throttle::updateGearIndicator() {
     break;
   }
 
-  for (int i = 0; i < 5; i++) {
-    if (_gearBars[i]) {
+  for (int i = 0; i < 5; i++)
+  {
+    if (_gearBars[i])
+    {
       _gearBars[i]->setColor((i < gearNum) ? GEAR_ACTIVE_COLOR
                                            : GEAR_INACTIVE_COLOR);
     }
   }
 
   // Update main gear indicator
-  if (_gearIndicator && !_isStalled) {
+  if (_gearIndicator && !_isStalled)
+  {
     Color4 indicatorColor;
-    switch (_currentGear) {
+    switch (_currentGear)
+    {
     case Gear::NEUTRAL:
       indicatorColor = Color4(100, 100, 100, 255);
       break;
@@ -549,15 +578,13 @@ void F10throttle::updateGearIndicator() {
     case Gear::GEAR_5:
       indicatorColor = Color4(255, 80, 80, 255);
       break;
-    case Gear::REVERSE:
-      indicatorColor = Color4(180, 80, 255, 255);
-      break;
     }
     _gearIndicator->setColor(indicatorColor);
   }
 }
 
-void F10throttle::updateGaugeVisuals() {
+void F10throttle::updateGaugeVisuals()
+{
   float maxRPM = getMaxRPMForGear(_currentGear);
   // Needle shows 0-100% of CURRENT GEAR's max
   float rpmRatio = _currentRPM / maxRPM;
@@ -567,29 +594,36 @@ void F10throttle::updateGaugeVisuals() {
   float startAngle = M_PI;
   float needleAngle = startAngle - rpmRatio * M_PI - M_PI / 2;
 
-  if (_needle) {
+  if (_needle)
+  {
     _needle->setAngle(needleAngle);
   }
 
   // Pulse gear indicator when near max RPM (time to shift!)
-  if (_gearIndicator && !_isStalled) {
+  if (_gearIndicator && !_isStalled)
+  {
     if (rpmRatio > 0.85f && _currentGear != Gear::GEAR_5 &&
-        _currentGear != Gear::NEUTRAL && _currentGear != Gear::REVERSE) {
+        _currentGear != Gear::NEUTRAL)
+    {
       float pulse = 1.0f + 0.15f * sinf(_currentRPM * 0.05f);
       _gearIndicator->setScale(pulse);
 
       // Change color to indicate shift window
-      if (isInShiftWindow()) {
+      if (isInShiftWindow())
+      {
         _gearIndicator->setColor(
             Color4(100, 255, 100, 255)); // Green = safe to shift
       }
-    } else {
+    }
+    else
+    {
       _gearIndicator->setScale(1.0f);
     }
   }
 }
 
-void F10throttle::updateHaptics() {
+void F10throttle::updateHaptics()
+{
   if (!_engineRunning)
     return;
 
@@ -607,7 +641,8 @@ void F10throttle::updateHaptics() {
   float baseSharpness = 0.0f;
   float maxSharpness = 0.0f;
 
-  switch (_currentGear) {
+  switch (_currentGear)
+  {
   case Gear::NEUTRAL:
     floorIntensity = 0.15f;
     floorSharpness = 0.1f;
@@ -672,12 +707,14 @@ void F10throttle::updateHaptics() {
   sharpness = std::max(sharpness, floorSharpness);
 
   // Add extra punch when throttling hard at high RPM
-  if (_isThrottling && rpmRatio > 0.7f) {
+  if (_isThrottling && rpmRatio > 0.7f)
+  {
     intensity = std::min(1.0f, intensity + 0.1f);
   }
 
   // Near redline - max intensity with pulsing feel
-  if (rpmRatio > 0.9f) {
+  if (rpmRatio > 0.9f)
+  {
     intensity = 1.0f;
   }
 
@@ -685,43 +722,58 @@ void F10throttle::updateHaptics() {
   _enginePlayer.setSharpness(sharpness);
 }
 
-void F10throttle::update(float timestep) {
+void F10throttle::update(float timestep)
+{
   FidgetableView::update(timestep);
 
   static float redlineHapticTimer = 0.0f;
 
-  if (_engineRunning && !_isStalled) {
+  if (_engineRunning && !_isStalled)
+  {
     float maxRPM = getMaxRPMForGear(_currentGear);
 
-    if (_isThrottling) {
+    if (_isThrottling)
+    {
       _currentRPM += RPM_ACCEL_RATE * timestep;
 
       // Hit the rev limiter
-      if (_currentRPM >= maxRPM) {
+      if (_currentRPM >= maxRPM)
+      {
         _currentRPM = maxRPM;
 
         // Periodic limiter haptic bursts
         redlineHapticTimer -= timestep;
-        if (redlineHapticTimer <= 0.0f) {
+        if (redlineHapticTimer <= 0.0f)
+        {
           Haptics::transient(0.9f, 0.8f); // Sharp limiter hit
           redlineHapticTimer = 0.08f;     // Rapid bursts
         }
-      } else {
+      }
+      else
+      {
         redlineHapticTimer = 0.0f;
       }
-    } else {
+    }
+    else
+    {
       // Deceleration - RPM always decelerates toward 0 on all gears
       _currentRPM -= RPM_DECEL_RATE * timestep;
 
       // In neutral, clamp to idle RPM (engine stays running)
-      if (_currentGear == Gear::NEUTRAL) {
+      if (_currentGear == Gear::NEUTRAL)
+      {
         _currentRPM = std::max(_currentRPM, IDLE_RPM);
-      } else {
+      }
+      else
+      {
         // In any gear, hitting 0 RPM causes a stall
-        if (_currentRPM <= 0.0f) {
+        if (_currentRPM <= 0.0f)
+        {
           stallEngine();
           redlineHapticTimer = 0.0f;
-        } else {
+        }
+        else
+        {
           _currentRPM = std::max(_currentRPM, 0.0f);
         }
       }
@@ -735,17 +787,22 @@ void F10throttle::update(float timestep) {
   updateGaugeVisuals();
 }
 
-void F10throttle::setActive(bool active) {
+void F10throttle::setActive(bool active)
+{
   FidgetableView::setActive(active);
 
-  if (!active && _engineRunning) {
+  if (!active && _engineRunning)
+  {
     _enginePlayer.pause();
-  } else if (active && _engineRunning && !_isStalled) {
+  }
+  else if (active && _engineRunning && !_isStalled)
+  {
     _enginePlayer.play();
   }
 }
 
-void F10throttle::activateInputs() {
+void F10throttle::activateInputs()
+{
   if (_shiftUpButton)
     _shiftUpButton->activate();
   if (_shiftDownButton)
@@ -754,7 +811,8 @@ void F10throttle::activateInputs() {
     _throttleButton->activate();
 }
 
-void F10throttle::deactivateInputs() {
+void F10throttle::deactivateInputs()
+{
   if (_shiftUpButton)
     _shiftUpButton->deactivate();
   if (_shiftDownButton)

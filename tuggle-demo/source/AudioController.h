@@ -19,7 +19,8 @@
  * Provides simple sound effect playback through a singleton interface.
  * Sounds are registered by key and can be played/stopped on demand.
  */
-class AudioController {
+class AudioController
+{
 private:
   /** The singleton instance */
   static AudioController *_instance;
@@ -111,4 +112,3 @@ public:
 };
 
 #endif /* __AUDIO_CONTROLLER_H__ */
-

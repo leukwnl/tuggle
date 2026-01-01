@@ -2,7 +2,7 @@
 //  F3snakeyes.cpp
 //  Tuggle
 //
-//  Six toggle buttons with continuous haptics.
+//  Third Tuggable: Six toggle buttons with continuous haptics.
 //  3 rows x 2 columns:
 //    Left = rumble (low sharpness), Right = tick (high sharpness)
 //    Top to bottom = slow, medium, fast interval speeds

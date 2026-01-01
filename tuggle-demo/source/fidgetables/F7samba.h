@@ -2,7 +2,7 @@
 //  F7samba.h
 //  Tuggle
 //
-//  Seventh fidgetable toy - maracas simulation with particle physics.
+//  Seventh Tuggable: maracas simulation with physics.
 //
 
 #ifndef __F7SAMBA_H__
@@ -15,18 +15,20 @@
 #define NUM_PARTICLES 30
 
 /**
- * Seventh fidgetable toy - Maracas Simulation
+ * Seventh Tuggable toy - Maracas Simulation
  *
  * Simulates the inside of a maraca with many small balls that
  * respond to gravity (accelerometer) and collide with each other
  * and the container walls. Shaking triggers collision haptics.
  */
-class F7samba : public FidgetableView {
+class F7samba : public FidgetableView
+{
 protected:
   /**
    * Represents a single particle (ball) in the maracas.
    */
-  struct Particle {
+  struct Particle
+  {
     cugl::Vec2 position; // Position relative to container center
     cugl::Vec2 velocity; // Velocity in scene units per second
     float radius;        // Particle radius

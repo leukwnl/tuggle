@@ -2,7 +2,7 @@
 //  F8karting.h
 //  Tuggle
 //
-//  Eighth fidgetable toy - steering wheel with rotation-based haptic ticks.
+//  Eigth Tuggable: Steering wheel with rotation haptics.
 //
 
 #ifndef __F8KARTING_H__
@@ -11,7 +11,7 @@
 #include "FidgetableView.h"
 
 /**
- * Eighth fidgetable toy - Steering Wheel
+ * Eight Tuggable toy - Steering Wheel
  *
  * The phone acts as a steering wheel. Rotating the phone triggers
  * haptic ticks at regular angle intervals, like notches on a wheel.

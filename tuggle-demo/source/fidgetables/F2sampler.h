@@ -2,7 +2,7 @@
 //  F2sampler.h
 //  Tuggle
 //
-//  Second fidgetable toy - a grid of buttons demonstrating all haptic styles.
+//  Second Tuggable: Seven buttons with different haptic styles.
 //
 
 #ifndef __F2sampler_H__
@@ -13,7 +13,7 @@
 #include <array>
 
 /**
- * Second fidgetable toy in the carousel.
+ * Second Tuggable toy in the carousel.
  * Displays 7 buttons showcasing all available haptic styles:
  * - Row 1: RATTLE, BUZZ, TICK
  * - Row 2: THUMP, TAP
@@ -21,7 +21,8 @@
  *
  * Each button demonstrates a different haptic method from the Haptics class.
  */
-class F2sampler : public FidgetableView {
+class F2sampler : public FidgetableView
+{
 protected:
   /** Number of haptic style buttons */
   static constexpr int NUM_BUTTONS = 7;

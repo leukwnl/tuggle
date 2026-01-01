@@ -2,8 +2,7 @@
 //  F9soundboard.h
 //  Tuggle
 //
-//  Ninth fidgetable toy - a 3x3 grid of soundboard buttons.
-//  Each button plays synchronized audio + AHAP haptics.
+//  Ninth Tuggable: A 3x3 soundboard with synchronized audio and custom AHAP haptic playback.
 //
 
 #ifndef __F9SOUNDBOARD_H__
@@ -16,9 +15,8 @@
 
 #define NUM_BUTTONS 9
 
-
 /**
- * Ninth fidgetable toy in the carousel.
+ * Ninth Tuggable toy - A Soundboard
  * Displays 9 buttons in a 3x3 grid, each playing a different sound + haptic combo.
  *
  * Features:
@@ -27,7 +25,8 @@
  * - Visual feedback shows which button is currently playing
  * - Uses Haptics::play() for AHAP file playback
  */
-class F9soundboard : public FidgetableView {
+class F9soundboard : public FidgetableView
+{
 protected:
   /** The button scene nodes */
   std::array<std::shared_ptr<cugl::scene2::Button>, NUM_BUTTONS> _buttons;
@@ -122,4 +121,3 @@ public:
 };
 
 #endif /* __F9SOUNDBOARD_H__ */
-

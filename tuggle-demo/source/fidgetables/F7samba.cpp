@@ -2,7 +2,7 @@
 //  F7samba.cpp
 //  Tuggle
 //
-//  Implementation of F7samba - maracas simulation with particle physics.
+//  Seventh Tuggable: maracas simulation with physics.
 //
 
 #include "F7samba.h"
@@ -47,7 +47,8 @@ F7samba::F7samba()
 
 F7samba::~F7samba() { dispose(); }
 
-bool F7samba::init(int index, const cugl::Size &pageSize) {
+bool F7samba::init(int index, const cugl::Size &pageSize)
+{
   // Calculate dimensions based on page size
   _containerRadius = pageSize.width * CONTAINER_RADIUS_RATIO;
   _particleRadius = pageSize.width * PARTICLE_RADIUS_RATIO;
@@ -57,17 +58,21 @@ bool F7samba::init(int index, const cugl::Size &pageSize) {
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F7samba> F7samba::alloc(const cugl::Size &pageSize) {
+std::shared_ptr<F7samba> F7samba::alloc(const cugl::Size &pageSize)
+{
   std::shared_ptr<F7samba> result = std::make_shared<F7samba>();
-  if (result->init(7, pageSize)) {
+  if (result->init(7, pageSize))
+  {
     return result;
   }
   return nullptr;
 }
 
-void F7samba::dispose() {
+void F7samba::dispose()
+{
   _containerNode = nullptr;
-  for (int i = 0; i < NUM_PARTICLES; i++) {
+  for (int i = 0; i < NUM_PARTICLES; i++)
+  {
     _particleNodes[i] = nullptr;
   }
   FidgetableView::dispose();
@@ -77,13 +82,15 @@ void F7samba::dispose() {
 #pragma mark Content Building
 
 std::shared_ptr<PolygonNode>
-F7samba::createRing(float innerRadius, float outerRadius, const Color4 &color) {
+F7samba::createRing(float innerRadius, float outerRadius, const Color4 &color)
+{
 
   const int segments = 64;
   std::vector<Vec2> outerVerts;
   std::vector<Vec2> innerVerts;
 
-  for (int i = 0; i < segments; i++) {
+  for (int i = 0; i < segments; i++)
+  {
     float angle = (float)i / segments * 2.0f * M_PI;
     float cos_a = cosf(angle);
     float sin_a = sinf(angle);
@@ -99,7 +106,8 @@ F7samba::createRing(float innerRadius, float outerRadius, const Color4 &color) {
   for (const auto &v : innerVerts)
     vertices.push_back(v);
 
-  for (int i = 0; i < segments; i++) {
+  for (int i = 0; i < segments; i++)
+  {
     int next = (i + 1) % segments;
     indices.push_back(i);
     indices.push_back(segments + i);
@@ -115,7 +123,8 @@ F7samba::createRing(float innerRadius, float outerRadius, const Color4 &color) {
   return node;
 }
 
-void F7samba::buildContent() {
+void F7samba::buildContent()
+{
   _containerCenter = Vec2(_pageSize.width / 2, _pageSize.height / 2);
 
   // Create container border
@@ -127,7 +136,8 @@ void F7samba::buildContent() {
   _rootNode->addChild(_containerNode);
 
   // Initialize and create particles - start at bottom of container
-  for (int i = 0; i < NUM_PARTICLES; i++) {
+  for (int i = 0; i < NUM_PARTICLES; i++)
+  {
     // Position particles at the bottom, spread horizontally
     // Random x position within bottom arc, y near bottom
     float xSpread =
@@ -139,7 +149,8 @@ void F7samba::buildContent() {
 
     // Clamp to container
     float dist = _particles[i].position.length();
-    if (dist > _maxParticleDistance) {
+    if (dist > _maxParticleDistance)
+    {
       _particles[i].position =
           _particles[i].position.getNormalization() * _maxParticleDistance;
     }
@@ -161,7 +172,8 @@ void F7samba::buildContent() {
 #pragma mark -
 #pragma mark Physics
 
-void F7samba::updatePhysics(float timestep) {
+void F7samba::updatePhysics(float timestep)
+{
   // Get accelerometer input
   Accelerometer *accel = Input::get<Accelerometer>();
   if (accel == nullptr)
@@ -187,12 +199,14 @@ void F7samba::updatePhysics(float timestep) {
   _ballCollisionCount = 0;
 
   // Update each particle
-  for (int i = 0; i < NUM_PARTICLES; i++) {
+  for (int i = 0; i < NUM_PARTICLES; i++)
+  {
     // Always apply gravity - this pulls particles to the bottom
     _particles[i].velocity += gravity * GRAVITY_SCALE * timestep;
 
     // On shake, add burst of energy in the shake direction
-    if (isShaking) {
+    if (isShaking)
+    {
       // Add randomized shake impulse
       float randomAngle = ((float)rand() / RAND_MAX - 0.5f) * 0.6f;
       float cosR = cosf(randomAngle);
@@ -208,7 +222,8 @@ void F7samba::updatePhysics(float timestep) {
 
     // Sleep check: stop if moving very slowly AND not being shaken
     float speed = _particles[i].velocity.length();
-    if (speed < SLEEP_VELOCITY && !isShaking) {
+    if (speed < SLEEP_VELOCITY && !isShaking)
+    {
       _particles[i].velocity = Vec2::ZERO;
     }
 
@@ -217,34 +232,42 @@ void F7samba::updatePhysics(float timestep) {
   }
 
   // Resolve collisions with multiple passes to prevent clipping
-  for (int pass = 0; pass < 4; pass++) {
+  for (int pass = 0; pass < 4; pass++)
+  {
     // Wall collisions
-    for (int i = 0; i < NUM_PARTICLES; i++) {
+    for (int i = 0; i < NUM_PARTICLES; i++)
+    {
       resolveWallCollision(i);
     }
 
     // Particle-particle collisions
-    for (int i = 0; i < NUM_PARTICLES; i++) {
-      for (int j = i + 1; j < NUM_PARTICLES; j++) {
+    for (int i = 0; i < NUM_PARTICLES; i++)
+    {
+      for (int j = i + 1; j < NUM_PARTICLES; j++)
+      {
         resolveParticleCollision(i, j);
       }
     }
   }
 
   // Update visual positions
-  for (int i = 0; i < NUM_PARTICLES; i++) {
-    if (_particleNodes[i] != nullptr) {
+  for (int i = 0; i < NUM_PARTICLES; i++)
+  {
+    if (_particleNodes[i] != nullptr)
+    {
       _particleNodes[i]->setPosition(_containerCenter + _particles[i].position);
     }
   }
 
   // Trigger haptic feedback if there were collisions
-  if (_wallCollisionCount > 0 || _ballCollisionCount > 0) {
+  if (_wallCollisionCount > 0 || _ballCollisionCount > 0)
+  {
     triggerCollisionHaptic(timestep);
   }
 }
 
-void F7samba::resolveParticleCollision(int a, int b) {
+void F7samba::resolveParticleCollision(int a, int b)
+{
   Vec2 delta = _particles[b].position - _particles[a].position;
   float dist = delta.length();
   float minDist = _particles[a].radius + _particles[b].radius;
@@ -252,7 +275,8 @@ void F7samba::resolveParticleCollision(int a, int b) {
   // Add small buffer to prevent touching
   float safeMinDist = minDist + 0.5f;
 
-  if (dist < safeMinDist && dist > 0.001f) {
+  if (dist < safeMinDist && dist > 0.001f)
+  {
     // Collision detected
     Vec2 normal = delta / dist;
     float overlap = safeMinDist - dist;
@@ -268,12 +292,14 @@ void F7samba::resolveParticleCollision(int a, int b) {
     float maxSpeed = std::max(speedA, speedB);
 
     // Only do velocity resolution if particles have real speed
-    if (maxSpeed > SLEEP_VELOCITY * 3.0f) {
+    if (maxSpeed > SLEEP_VELOCITY * 3.0f)
+    {
       Vec2 relVel = _particles[b].velocity - _particles[a].velocity;
       float velAlongNormal = relVel.dot(normal);
 
       // Only resolve if moving toward each other
-      if (velAlongNormal < 0) {
+      if (velAlongNormal < 0)
+      {
         float impulse = -(1.0f + BALL_RESTITUTION) * velAlongNormal / 2.0f;
         Vec2 impulseVec = normal * impulse;
 
@@ -282,7 +308,8 @@ void F7samba::resolveParticleCollision(int a, int b) {
 
         // Track ball-ball collision for haptics - only high velocity
         float collisionForce = fabsf(velAlongNormal);
-        if (collisionForce > 200.0f && maxSpeed > 150.0f) {
+        if (collisionForce > 200.0f && maxSpeed > 150.0f)
+        {
           _ballCollisionIntensity += collisionForce;
           _ballCollisionCount++;
         }
@@ -291,13 +318,15 @@ void F7samba::resolveParticleCollision(int a, int b) {
   }
 }
 
-void F7samba::resolveWallCollision(int index) {
+void F7samba::resolveWallCollision(int index)
+{
   float dist = _particles[index].position.length();
 
   // Small buffer to keep particles slightly inside
   float safeDistance = _maxParticleDistance - 0.5f;
 
-  if (dist > safeDistance) {
+  if (dist > safeDistance)
+  {
     // Collision with wall
     Vec2 normal = _particles[index].position / dist;
 
@@ -308,13 +337,15 @@ void F7samba::resolveWallCollision(int index) {
     float velIntoWall = _particles[index].velocity.dot(normal);
     float totalSpeed = _particles[index].velocity.length();
 
-    if (velIntoWall > 0) {
+    if (velIntoWall > 0)
+    {
       // Reflect with restitution
       _particles[index].velocity -=
           normal * velIntoWall * (1.0f + WALL_RESTITUTION);
 
       // Track wall collision for haptics - needs high velocity
-      if (velIntoWall > 150.0f && totalSpeed > 200.0f) {
+      if (velIntoWall > 150.0f && totalSpeed > 200.0f)
+      {
         _wallCollisionIntensity += velIntoWall;
         _wallCollisionCount++;
       }
@@ -325,20 +356,25 @@ void F7samba::resolveWallCollision(int index) {
 #pragma mark -
 #pragma mark Haptics
 
-void F7samba::triggerCollisionHaptic(float timestep) {
+void F7samba::triggerCollisionHaptic(float timestep)
+{
   _hapticCooldown -= timestep;
   if (_hapticCooldown > 0.0f)
     return;
 
   // Wall collisions: sharp, scales with velocity and count
-  if (_wallCollisionCount > 0) {
+  if (_wallCollisionCount > 0)
+  {
     float avgWallForce = _wallCollisionIntensity / (float)_wallCollisionCount;
 
     // High velocity (>400) = stronger, medium (200-400) = light
     float forceScale;
-    if (avgWallForce > 500.0f) {
+    if (avgWallForce > 500.0f)
+    {
       forceScale = 0.6f + std::min((avgWallForce - 500.0f) / 500.0f, 0.4f);
-    } else {
+    }
+    else
+    {
       forceScale = 0.2f + (avgWallForce - 150.0f) / 350.0f * 0.4f;
     }
 
@@ -355,11 +391,13 @@ void F7samba::triggerCollisionHaptic(float timestep) {
   }
 
   // Ball-ball collisions: very light, only when many collide at high speed
-  if (_ballCollisionCount > 0) {
+  if (_ballCollisionCount > 0)
+  {
     float avgForce = _ballCollisionIntensity / (float)_ballCollisionCount;
 
     // Only noticeable if force is high
-    if (avgForce > 300.0f) {
+    if (avgForce > 300.0f)
+    {
       float countScale = std::min((float)_ballCollisionCount / 10.0f, 1.0f);
       float intensity = 0.15f + countScale * 0.15f;
       intensity = std::min(intensity, 0.35f);
@@ -373,26 +411,32 @@ void F7samba::triggerCollisionHaptic(float timestep) {
 #pragma mark -
 #pragma mark Lifecycle
 
-void F7samba::update(float timestep) {
+void F7samba::update(float timestep)
+{
   FidgetableView::update(timestep);
 
-  if (_isActive) {
+  if (_isActive)
+  {
     updatePhysics(timestep);
   }
 }
 
-void F7samba::setActive(bool active) {
+void F7samba::setActive(bool active)
+{
   FidgetableView::setActive(active);
 
   // Update container appearance
-  if (_containerNode != nullptr) {
+  if (_containerNode != nullptr)
+  {
     _containerNode->setColor(active ? CONTAINER_COLOR
                                     : CONTAINER_COLOR_INACTIVE);
   }
 
   // Update particle colors
-  for (int i = 0; i < NUM_PARTICLES; i++) {
-    if (_particleNodes[i] != nullptr) {
+  for (int i = 0; i < NUM_PARTICLES; i++)
+  {
+    if (_particleNodes[i] != nullptr)
+    {
       Color4 color = active
                          ? PARTICLE_COLORS[i % PARTICLE_COLORS_COUNT]
                          : PARTICLE_COLORS_INACTIVE[i % PARTICLE_COLORS_COUNT];
@@ -401,8 +445,10 @@ void F7samba::setActive(bool active) {
   }
 
   // Reset physics when becoming active
-  if (active) {
-    for (int i = 0; i < NUM_PARTICLES; i++) {
+  if (active)
+  {
+    for (int i = 0; i < NUM_PARTICLES; i++)
+    {
       _particles[i].velocity = Vec2::ZERO;
     }
     _hapticCooldown = 0.0f;
@@ -410,10 +456,12 @@ void F7samba::setActive(bool active) {
   }
 }
 
-void F7samba::activateInputs() {
+void F7samba::activateInputs()
+{
   // No touch inputs - uses accelerometer only
 }
 
-void F7samba::deactivateInputs() {
+void F7samba::deactivateInputs()
+{
   // No touch inputs to deactivate
 }

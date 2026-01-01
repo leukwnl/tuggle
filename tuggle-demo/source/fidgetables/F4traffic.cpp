@@ -2,7 +2,7 @@
 //  F4traffic.cpp
 //  Tuggle
 //
-//  Implementation of F4traffic - three hold-to-pop buttons.
+//  Fourth Tuggable: three hold-to-pop buttons.
 //
 
 #include "F4traffic.h"

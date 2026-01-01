@@ -2,7 +2,7 @@
 //  F8karting.cpp
 //  Tuggle
 //
-//  Implementation of F8karting - steering wheel with rotation haptics.
+//  Eigth Tuggable: Steering wheel with rotation haptics.
 //
 
 #include "F8karting.h"
@@ -19,13 +19,13 @@ using namespace cugl::scene2;
 #define RING_WIDTH 12.0f
 
 // Colors - racing/sporty theme
-#define WHEEL_COLOR Color4(60, 60, 70, 255)           // Dark gray
-#define WHEEL_COLOR_INACTIVE Color4(45, 45, 50, 255)  // Darker
-#define HUB_COLOR Color4(200, 50, 50, 255)            // Red center
-#define HUB_COLOR_INACTIVE Color4(120, 50, 50, 255)   // Dimmed red
-#define INDICATOR_COLOR Color4(255, 200, 50, 255)     // Yellow indicator
+#define WHEEL_COLOR Color4(60, 60, 70, 255)          // Dark gray
+#define WHEEL_COLOR_INACTIVE Color4(45, 45, 50, 255) // Darker
+#define HUB_COLOR Color4(200, 50, 50, 255)           // Red center
+#define HUB_COLOR_INACTIVE Color4(120, 50, 50, 255)  // Dimmed red
+#define INDICATOR_COLOR Color4(255, 200, 50, 255)    // Yellow indicator
 #define INDICATOR_COLOR_INACTIVE Color4(150, 120, 40, 255)
-#define TICK_COLOR Color4(100, 100, 110, 255)         // Subtle tick marks
+#define TICK_COLOR Color4(100, 100, 110, 255) // Subtle tick marks
 #define TICK_COLOR_INACTIVE Color4(60, 60, 65, 255)
 
 // Number of visual tick marks
@@ -40,21 +40,25 @@ F8karting::F8karting()
 
 F8karting::~F8karting() { dispose(); }
 
-bool F8karting::init(int index, const cugl::Size &pageSize) {
+bool F8karting::init(int index, const cugl::Size &pageSize)
+{
   _wheelRadius = pageSize.width * WHEEL_RADIUS_RATIO;
   _hubRadius = pageSize.width * HUB_RADIUS_RATIO;
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F8karting> F8karting::alloc(const cugl::Size &pageSize) {
+std::shared_ptr<F8karting> F8karting::alloc(const cugl::Size &pageSize)
+{
   std::shared_ptr<F8karting> result = std::make_shared<F8karting>();
-  if (result->init(8, pageSize)) {
+  if (result->init(8, pageSize))
+  {
     return result;
   }
   return nullptr;
 }
 
-void F8karting::dispose() {
+void F8karting::dispose()
+{
   _wheelNode = nullptr;
   _hubNode = nullptr;
   _indicatorNode = nullptr;
@@ -67,12 +71,14 @@ void F8karting::dispose() {
 
 std::shared_ptr<PolygonNode>
 F8karting::createRing(float innerRadius, float outerRadius,
-                      const Color4 &color) {
+                      const Color4 &color)
+{
   const int segments = 64;
   std::vector<Vec2> outerVerts;
   std::vector<Vec2> innerVerts;
 
-  for (int i = 0; i < segments; i++) {
+  for (int i = 0; i < segments; i++)
+  {
     float angle = (float)i / segments * 2.0f * M_PI;
     float cos_a = cosf(angle);
     float sin_a = sinf(angle);
@@ -88,7 +94,8 @@ F8karting::createRing(float innerRadius, float outerRadius,
   for (const auto &v : innerVerts)
     vertices.push_back(v);
 
-  for (int i = 0; i < segments; i++) {
+  for (int i = 0; i < segments; i++)
+  {
     int next = (i + 1) % segments;
     indices.push_back(i);
     indices.push_back(segments + i);
@@ -105,7 +112,8 @@ F8karting::createRing(float innerRadius, float outerRadius,
 }
 
 std::shared_ptr<PolygonNode> F8karting::createBar(float width, float height,
-                                                   const Color4 &color) {
+                                                  const Color4 &color)
+{
   std::vector<Vec2> vertices = {Vec2(-width / 2, 0), Vec2(width / 2, 0),
                                 Vec2(width / 2, height),
                                 Vec2(-width / 2, height)};
@@ -117,7 +125,8 @@ std::shared_ptr<PolygonNode> F8karting::createBar(float width, float height,
   return node;
 }
 
-void F8karting::buildContent() {
+void F8karting::buildContent()
+{
   _wheelCenter = Vec2(_pageSize.width / 2, _pageSize.height / 2);
 
   // Create the wheel ring
@@ -130,7 +139,8 @@ void F8karting::buildContent() {
   // Create tick marks around the wheel
   float tickLength = 15.0f;
   float tickWidth = 3.0f;
-  for (int i = 0; i < NUM_TICK_MARKS; i++) {
+  for (int i = 0; i < NUM_TICK_MARKS; i++)
+  {
     float angle = (float)i / NUM_TICK_MARKS * 2.0f * M_PI;
 
     auto tick = createBar(tickWidth, tickLength, TICK_COLOR);
@@ -171,13 +181,15 @@ void F8karting::buildContent() {
 #pragma mark -
 #pragma mark Rotation Logic
 
-int F8karting::angleToTickIndex(float angle) {
+int F8karting::angleToTickIndex(float angle)
+{
   // Convert angle to tick index (works for full 360 degrees)
   // Each tick is TICK_ANGLE radians apart
   return (int)std::floor(angle / TICK_ANGLE);
 }
 
-void F8karting::update(float timestep) {
+void F8karting::update(float timestep)
+{
   FidgetableView::update(timestep);
 
   if (!_isActive)
@@ -218,25 +230,30 @@ void F8karting::update(float timestep) {
 
   // Check for tick crossing
   int newTickIndex = angleToTickIndex(_currentAngle);
-  if (newTickIndex != _lastTickIndex) {
+  if (newTickIndex != _lastTickIndex)
+  {
     // Crossed a tick - trigger haptic
     Haptics::heavy();
     _lastTickIndex = newTickIndex;
   }
 
   // Update visual rotation - indicator rotates fully with phone
-  if (_indicatorNode != nullptr) {
+  if (_indicatorNode != nullptr)
+  {
     _indicatorNode->setAngle(_currentAngle);
   }
 
   // Rotate the entire wheel with phone rotation
-  if (_wheelNode != nullptr) {
+  if (_wheelNode != nullptr)
+  {
     _wheelNode->setAngle(_currentAngle);
   }
 
   // Rotate tick marks with wheel
-  for (int i = 0; i < (int)_tickMarks.size(); i++) {
-    if (_tickMarks[i] != nullptr) {
+  for (int i = 0; i < (int)_tickMarks.size(); i++)
+  {
+    if (_tickMarks[i] != nullptr)
+    {
       float baseAngle = (float)i / NUM_TICK_MARKS * 2.0f * M_PI;
       float rotatedAngle = baseAngle + _currentAngle;
 
@@ -250,37 +267,46 @@ void F8karting::update(float timestep) {
   }
 }
 
-void F8karting::setActive(bool active) {
+void F8karting::setActive(bool active)
+{
   FidgetableView::setActive(active);
 
-  if (_wheelNode != nullptr) {
+  if (_wheelNode != nullptr)
+  {
     _wheelNode->setColor(active ? WHEEL_COLOR : WHEEL_COLOR_INACTIVE);
   }
-  if (_hubNode != nullptr) {
+  if (_hubNode != nullptr)
+  {
     _hubNode->setColor(active ? HUB_COLOR : HUB_COLOR_INACTIVE);
   }
-  if (_indicatorNode != nullptr) {
+  if (_indicatorNode != nullptr)
+  {
     _indicatorNode->setColor(active ? INDICATOR_COLOR
                                     : INDICATOR_COLOR_INACTIVE);
   }
-  for (auto &tick : _tickMarks) {
-    if (tick != nullptr) {
+  for (auto &tick : _tickMarks)
+  {
+    if (tick != nullptr)
+    {
       tick->setColor(active ? TICK_COLOR : TICK_COLOR_INACTIVE);
     }
   }
 
   // Reset angle when becoming active
-  if (active) {
+  if (active)
+  {
     _currentAngle = 0.0f;
     _smoothedAngle = 0.0f;
     _lastTickIndex = 0;
   }
 }
 
-void F8karting::activateInputs() {
+void F8karting::activateInputs()
+{
   // No touch inputs - uses accelerometer
 }
 
-void F8karting::deactivateInputs() {
+void F8karting::deactivateInputs()
+{
   // No touch inputs to deactivate
 }

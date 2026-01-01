@@ -2,8 +2,8 @@
 //  F10throttle.h
 //  Tuggle
 //
-//  Tenth fidgetable toy - realistic car simulator with button-based shifting.
-//  Demonstrates all HapticPlayer features with realistic gear/RPM mechanics.
+//  Tenth Tuggable: Realistic car simulator with button-based shifting.
+//  Demonstrates all HapticPlayer features with realistic RPM mechanics.
 //
 
 #ifndef __F10THROTTLE_H__
@@ -13,20 +13,20 @@
 #include <cugl/core/input/CUHaptics.h>
 
 /**
- * Gear levels (1-5 plus neutral and reverse).
+ * Gear levels (1-5 plus neutral).
  */
-enum class Gear {
+enum class Gear
+{
   NEUTRAL = 0,
   GEAR_1,
   GEAR_2,
   GEAR_3,
   GEAR_4,
   GEAR_5,
-  REVERSE
 };
 
 /**
- * Tenth fidgetable toy - realistic car simulator.
+ * Tenth Tuggable toy - Realistic car simulator.
  *
  * Features:
  * - Button-based gear shifting (up/down buttons)
@@ -35,7 +35,8 @@ enum class Gear {
  * - Pedal-style throttle button
  * - Continuous engine haptics via HapticPlayer
  */
-class F10throttle : public FidgetableView {
+class F10throttle : public FidgetableView
+{
 protected:
   // === Visual Elements ===
 

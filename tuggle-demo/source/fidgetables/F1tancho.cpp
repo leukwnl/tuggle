@@ -2,7 +2,7 @@
 //  F1tancho.cpp
 //  Tuggle
 //
-//  Implementation of F1tancho - a single button toy.
+// First tuggable: A button that can slide in any direction.
 //
 
 #include "F1tancho.h"

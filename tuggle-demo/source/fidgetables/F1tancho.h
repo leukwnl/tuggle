@@ -2,7 +2,7 @@
 //  F1tancho.h
 //  Tuggle
 //
-// A button that can slide in any direction.
+// First tuggable: A button that can slide in any direction.
 //
 
 #ifndef __F1TANCHO_H__
@@ -11,6 +11,7 @@
 #include "FidgetableView.h"
 #include <cugl/core/input/CUHaptics.h>
 
+//* First Tuggable toy in the carousel.
 class F1tancho : public FidgetableView
 {
 protected:

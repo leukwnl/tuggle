@@ -92,7 +92,7 @@ void HapticButton::onPressed(Vec2 pointerPos)
     Haptics::tap(0.8f, 0.5f);
     break;
   case HapticStyle::BUZZ_PULSE:
-    Haptics::buzz(0.7f, 0.3f, 0.15f);  // Short 150ms buzz on press
+    Haptics::buzz(0.7f, 0.3f, 0.15f); // Short 150ms buzz on press
     break;
   case HapticStyle::SELECTION:
     Haptics::selection();
@@ -225,9 +225,9 @@ void HapticButton::triggerHaptic(float velocity, float timestep)
     // Short continuous buzz triggered by velocity
     if (intensity > 0.25f)
     {
-      float duration = 0.05f + intensity * 0.1f;  // 50-150ms based on velocity
+      float duration = 0.05f + intensity * 0.1f; // 50-150ms based on velocity
       Haptics::buzz(intensity * 0.8f, 0.25f, duration);
-      _hapticCooldown = duration + 0.05f;  // Wait for buzz to finish + small gap
+      _hapticCooldown = duration + 0.05f; // Wait for buzz to finish + small gap
     }
     break;
 
@@ -236,7 +236,7 @@ void HapticButton::triggerHaptic(float velocity, float timestep)
     if (intensity > 0.15f)
     {
       Haptics::selection();
-      _hapticCooldown = 0.06f;  // Quick selection ticks
+      _hapticCooldown = 0.06f; // Quick selection ticks
     }
     break;
   }

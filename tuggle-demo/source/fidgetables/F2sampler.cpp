@@ -2,7 +2,7 @@
 //  F2sampler.cpp
 //  Tuggle
 //
-//  Four buttons with different haptic styles.
+//  Second Tuggable: Seven buttons with different haptic styles.
 //
 
 #include "F2sampler.h"
@@ -23,13 +23,13 @@ static const Color4 COLORS[] = {
 };
 
 static const Color4 COLORS_PRESSED[] = {
-    Color4(225, 77, 77, 255),   // RATTLE
-    Color4(48, 175, 166, 255),  // BUZZ
-    Color4(225, 200, 79, 255),  // TICK
-    Color4(140, 81, 225, 255),  // THUMP
-    Color4(225, 135, 59, 255),  // TAP
-    Color4(59, 135, 225, 255),  // BUZZ_PULSE
-    Color4(135, 225, 135, 255)  // SELECTION
+    Color4(225, 77, 77, 255),  // RATTLE
+    Color4(48, 175, 166, 255), // BUZZ
+    Color4(225, 200, 79, 255), // TICK
+    Color4(140, 81, 225, 255), // THUMP
+    Color4(225, 135, 59, 255), // TAP
+    Color4(59, 135, 225, 255), // BUZZ_PULSE
+    Color4(135, 225, 135, 255) // SELECTION
 };
 
 static const Color4 COLORS_INACTIVE[] = {
@@ -86,9 +86,9 @@ void F2sampler::buildContent()
   Vec2 center(_pageSize.width / 2, _pageSize.height / 2);
 
   // Row heights (top row higher, bottom row lower)
-  float row1Y = center.y + cellSize * 1.1f;  // Top row (3 buttons)
-  float row2Y = center.y;                     // Middle row (2 buttons)
-  float row3Y = center.y - cellSize * 1.1f;  // Bottom row (2 buttons)
+  float row1Y = center.y + cellSize * 1.1f; // Top row (3 buttons)
+  float row2Y = center.y;                   // Middle row (2 buttons)
+  float row3Y = center.y - cellSize * 1.1f; // Bottom row (2 buttons)
 
   Vec2 positions[] = {
       // Row 1: RATTLE, BUZZ, TICK (3 buttons)
@@ -100,8 +100,7 @@ void F2sampler::buildContent()
       Vec2(center.x + cellSize * 0.5f, row2Y),
       // Row 3: BUZZ_PULSE, SELECTION (2 buttons)
       Vec2(center.x - cellSize * 0.5f, row3Y),
-      Vec2(center.x + cellSize * 0.5f, row3Y)
-  };
+      Vec2(center.x + cellSize * 0.5f, row3Y)};
 
   HapticStyle styles[] = {
       HapticStyle::RATTLE,     // Coral red - velocity transients
