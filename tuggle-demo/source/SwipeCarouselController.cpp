@@ -107,13 +107,13 @@ void SwipeCarouselController::buildFidgetables() {
   _fidgetables.push_back(f2);
 
   // Fidgetable 3
-  auto f3 = F3snakeyes::alloc(pageSize);
+  auto f3 = F3vibrations::alloc(pageSize);
   f3->getNode()->setPosition(Vec2(2 * _pageWidth, 0));
   _container->addChild(f3->getNode());
   _fidgetables.push_back(f3);
 
   // Fidgetable 4
-  auto f4 = F4traffic::alloc(pageSize);
+  auto f4 = F4bubbles::alloc(pageSize);
   f4->getNode()->setPosition(Vec2(3 * _pageWidth, 0));
   _container->addChild(f4->getNode());
   _fidgetables.push_back(f4);
@@ -131,13 +131,13 @@ void SwipeCarouselController::buildFidgetables() {
   _fidgetables.push_back(f6);
 
   // Fidgetable 7
-  auto f7 = F7samba::alloc(pageSize);
+  auto f7 = F7fluid::alloc(pageSize);
   f7->getNode()->setPosition(Vec2(6 * _pageWidth, 0));
   _container->addChild(f7->getNode());
   _fidgetables.push_back(f7);
 
   // Fidgetable 8
-  auto f8 = F8karting::alloc(pageSize);
+  auto f8 = F8uppity::alloc(pageSize);
   f8->getNode()->setPosition(Vec2(7 * _pageWidth, 0));
   _container->addChild(f8->getNode());
   _fidgetables.push_back(f8);
@@ -174,8 +174,8 @@ void SwipeCarouselController::buildFidgetables() {
 
 
 
-  // Fidgetable 10 - Throttle (HapticPlayer demo)
-  auto f10 = F10throttle::alloc(pageSize);
+  // Fidgetable 10 - verstappen (HapticPlayer demo)
+  auto f10 = F10verstappen::alloc(pageSize);
   f10->getNode()->setPosition(Vec2(9 * _pageWidth, 0));
   _container->addChild(f10->getNode());
   _fidgetables.push_back(f10);

@@ -1,31 +1,30 @@
 //
-//  F7samba.h
+//  F7fluid.h
 //  Tuggle
 //
-//  Seventh Tuggable: maracas simulation with physics.
+//  Seventh Tuggable: fluid particles simulation with physics.
 //
 
-#ifndef __F7SAMBA_H__
-#define __F7SAMBA_H__
+#ifndef __F7fluid_H__
+#define __F7fluid_H__
 
 #include "FidgetableView.h"
 #include <array>
 
-// Number of particles in the maracas
+// Number of particles in the container
 #define NUM_PARTICLES 30
 
 /**
- * Seventh Tuggable toy - Maracas Simulation
+ * Seventh Tuggable toy - Fluid Simulation
  *
- * Simulates the inside of a maraca with many small balls that
- * respond to gravity (accelerometer) and collide with each other
- * and the container walls. Shaking triggers collision haptics.
+ * Simulates a fluid inside of a container with many small balls that
+ * respond to gravity (accelerometer).
  */
-class F7samba : public FidgetableView
+class F7fluid : public FidgetableView
 {
 protected:
   /**
-   * Represents a single particle (ball) in the maracas.
+   * Represents a single particle (ball) in the container.
    */
   struct Particle
   {
@@ -145,11 +144,11 @@ protected:
   createRing(float innerRadius, float outerRadius, const cugl::Color4 &color);
 
 public:
-  F7samba();
-  virtual ~F7samba();
+  F7fluid();
+  virtual ~F7fluid();
 
   bool init(int index, const cugl::Size &pageSize) override;
-  static std::shared_ptr<F7samba> alloc(const cugl::Size &pageSize);
+  static std::shared_ptr<F7fluid> alloc(const cugl::Size &pageSize);
   void dispose() override;
   void update(float timestep) override;
   void setActive(bool active) override;
@@ -157,4 +156,4 @@ public:
   void deactivateInputs() override;
 };
 
-#endif /* __F7SAMBA_H__ */
+#endif /* __F7fluid_H__ */

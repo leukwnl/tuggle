@@ -1,33 +1,36 @@
 //
-//  F4traffic.cpp
+//  F4bubbles.cpp
 //  Tuggle
 //
 //  Fourth Tuggable: three hold-to-pop buttons.
 //
 
-#include "F4traffic.h"
+#include "F4bubbles.h"
 #include "InputController.h"
 #include <cmath>
 
 using namespace cugl;
 using namespace cugl::scene2;
 
-// Button colors
+// Bubble-style button colors (distinct, non-RYG)
+
 static const Color4 BUTTON_COLORS[] = {
-    Color4(255, 80, 80, 255),  // Red
-    Color4(255, 200, 50, 255), // Yellow
-    Color4(80, 200, 80, 255)   // Green
+    Color4(140, 180, 255, 255), // Bubble Blue
+    Color4(255, 160, 220, 255), // Bubble Pink
+    Color4(170, 240, 200, 255)  // Bubble Mint
 };
 
 static const Color4 BUTTON_COLORS_PRESSED[] = {
-    Color4(225, 50, 50, 255),
-    Color4(225, 170, 20, 255),
-    Color4(50, 170, 50, 255)};
+    Color4(110, 150, 230, 255), // Pressed Blue
+    Color4(230, 130, 195, 255), // Pressed Pink
+    Color4(140, 210, 170, 255)  // Pressed Mint
+};
 
 static const Color4 BUTTON_COLORS_INACTIVE[] = {
-    Color4(200, 140, 140, 255),
-    Color4(200, 190, 130, 255),
-    Color4(140, 190, 140, 255)};
+    Color4(190, 210, 240, 255), // Inactive Blue
+    Color4(240, 200, 225, 255), // Inactive Pink
+    Color4(200, 235, 220, 255)  // Inactive Mint
+};
 
 // Haptic parameters - very distinct between buttons
 // Red: deep rumble, Yellow: medium thud, Green: sharp tick
@@ -43,11 +46,11 @@ static const float BUTTON_FINAL_INTERVAL[] = {0.025f, 0.018f, 0.012f};
 #pragma mark -
 #pragma mark Constructors
 
-F4traffic::F4traffic()
+F4bubbles::F4bubbles()
     : FidgetableView(), _buttonRadius(50.0f), _heldButton(-1),
       _holdTime(0.0f), _currentScale(1.0f), _hapticTimer(0.0f)
 {
-  for (int i = 0; i < NUM_TRAFFIC_BUTTONS; i++)
+  for (int i = 0; i < NUM_bubbles_BUTTONS; i++)
   {
     _alphas[i] = 1.0f;
     _popStates[i] = PopState::NONE;
@@ -55,17 +58,17 @@ F4traffic::F4traffic()
   }
 }
 
-F4traffic::~F4traffic() { dispose(); }
+F4bubbles::~F4bubbles() { dispose(); }
 
-bool F4traffic::init(int index, const cugl::Size &pageSize)
+bool F4bubbles::init(int index, const cugl::Size &pageSize)
 {
   _buttonRadius = pageSize.width * BUTTON_RADIUS_RATIO;
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F4traffic> F4traffic::alloc(const cugl::Size &pageSize)
+std::shared_ptr<F4bubbles> F4bubbles::alloc(const cugl::Size &pageSize)
 {
-  auto result = std::make_shared<F4traffic>();
+  auto result = std::make_shared<F4bubbles>();
   if (result->init(4, pageSize))
   {
     return result;
@@ -73,9 +76,9 @@ std::shared_ptr<F4traffic> F4traffic::alloc(const cugl::Size &pageSize)
   return nullptr;
 }
 
-void F4traffic::dispose()
+void F4bubbles::dispose()
 {
-  for (int i = 0; i < NUM_TRAFFIC_BUTTONS; i++)
+  for (int i = 0; i < NUM_bubbles_BUTTONS; i++)
   {
     if (_buttons[i] != nullptr)
     {
@@ -92,16 +95,16 @@ void F4traffic::dispose()
 #pragma mark -
 #pragma mark Content Building
 
-void F4traffic::buildContent()
+void F4bubbles::buildContent()
 {
   float spacing = _pageSize.width * SPACING_RATIO;
-  float totalHeight = NUM_TRAFFIC_BUTTONS * (_buttonRadius * 2) +
-                      (NUM_TRAFFIC_BUTTONS - 1) * spacing;
+  float totalHeight = NUM_bubbles_BUTTONS * (_buttonRadius * 2) +
+                      (NUM_bubbles_BUTTONS - 1) * spacing;
 
   float startY = (_pageSize.height + totalHeight) / 2 - _buttonRadius;
   float centerX = _pageSize.width / 2;
 
-  for (int i = 0; i < NUM_TRAFFIC_BUTTONS; i++)
+  for (int i = 0; i < NUM_bubbles_BUTTONS; i++)
   {
     Vec2 pos(centerX, startY - i * (_buttonRadius * 2 + spacing));
 
@@ -114,7 +117,7 @@ void F4traffic::buildContent()
     _buttons[i] = Button::alloc(normalNode, pressedNode);
     _buttons[i]->setAnchor(Vec2::ANCHOR_CENTER);
     _buttons[i]->setPosition(pos);
-    _buttons[i]->setName("f4traffic_btn_" + std::to_string(i));
+    _buttons[i]->setName("f4bubbles_btn_" + std::to_string(i));
 
     int btnIndex = i;
     _buttons[i]->addListener(
@@ -140,7 +143,7 @@ void F4traffic::buildContent()
 #pragma mark -
 #pragma mark Interaction
 
-void F4traffic::onPressed(int index)
+void F4bubbles::onPressed(int index)
 {
   if (_popStates[index] != PopState::NONE)
     return;
@@ -152,7 +155,7 @@ void F4traffic::onPressed(int index)
   _isInteracting = true;
 }
 
-void F4traffic::onReleased(int index)
+void F4bubbles::onReleased(int index)
 {
   if (_heldButton == index)
   {
@@ -167,7 +170,7 @@ void F4traffic::onReleased(int index)
   }
 }
 
-void F4traffic::popButton(int index)
+void F4bubbles::popButton(int index)
 {
   Haptics::heavy();
 
@@ -181,7 +184,7 @@ void F4traffic::popButton(int index)
   _isInteracting = false;
 }
 
-void F4traffic::applyButtonAlpha(int index)
+void F4bubbles::applyButtonAlpha(int index)
 {
   if (_normalNodes[index] == nullptr || _pressedNodes[index] == nullptr)
     return;
@@ -197,7 +200,7 @@ void F4traffic::applyButtonAlpha(int index)
   _pressedNodes[index]->setColor(pressedColor);
 }
 
-void F4traffic::update(float timestep)
+void F4bubbles::update(float timestep)
 {
   FidgetableView::update(timestep);
 
@@ -238,7 +241,7 @@ void F4traffic::update(float timestep)
   }
 
   // Handle pop state machine for each button
-  for (int i = 0; i < NUM_TRAFFIC_BUTTONS; i++)
+  for (int i = 0; i < NUM_bubbles_BUTTONS; i++)
   {
     if (_buttons[i] == nullptr)
       continue;
@@ -284,18 +287,18 @@ void F4traffic::update(float timestep)
         _alphas[i] = 1.0f;
         _popStates[i] = PopState::NONE;
         applyButtonAlpha(i);
-        CULog("F4traffic button %d respawned", i);
+        CULog("F4bubbles button %d respawned", i);
       }
       break;
     }
   }
 }
 
-void F4traffic::setActive(bool active)
+void F4bubbles::setActive(bool active)
 {
   FidgetableView::setActive(active);
 
-  for (int i = 0; i < NUM_TRAFFIC_BUTTONS; i++)
+  for (int i = 0; i < NUM_bubbles_BUTTONS; i++)
   {
     if (_normalNodes[i] != nullptr && _popStates[i] == PopState::NONE)
     {
@@ -311,7 +314,7 @@ void F4traffic::setActive(bool active)
   }
 }
 
-void F4traffic::activateInputs()
+void F4bubbles::activateInputs()
 {
   for (auto &btn : _buttons)
   {
@@ -320,7 +323,7 @@ void F4traffic::activateInputs()
   }
 }
 
-void F4traffic::deactivateInputs()
+void F4bubbles::deactivateInputs()
 {
   for (auto &btn : _buttons)
   {

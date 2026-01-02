@@ -1,22 +1,22 @@
 //
-//  F8karting.h
+//  F8uppity.h
 //  Tuggle
 //
-//  Eigth Tuggable: Steering wheel with rotation haptics.
+//  Eigth Tuggable: Rotating wheel, with a needle always pointing up.
 //
 
-#ifndef __F8KARTING_H__
-#define __F8KARTING_H__
+#ifndef __F8uppity_H__
+#define __F8uppity_H__
 
 #include "FidgetableView.h"
 
 /**
- * Eight Tuggable toy - Steering Wheel
+ * Eight Tuggable toy - Wheel
  *
  * The phone acts as a steering wheel. Rotating the phone triggers
  * haptic ticks at regular angle intervals, like notches on a wheel.
  */
-class F8karting : public FidgetableView
+class F8uppity : public FidgetableView
 {
 protected:
   // Visual elements
@@ -82,11 +82,11 @@ protected:
   int angleToTickIndex(float angle);
 
 public:
-  F8karting();
-  virtual ~F8karting();
+  F8uppity();
+  virtual ~F8uppity();
 
   bool init(int index, const cugl::Size &pageSize) override;
-  static std::shared_ptr<F8karting> alloc(const cugl::Size &pageSize);
+  static std::shared_ptr<F8uppity> alloc(const cugl::Size &pageSize);
   void dispose() override;
   void update(float timestep) override;
   void setActive(bool active) override;
@@ -94,4 +94,4 @@ public:
   void deactivateInputs() override;
 };
 
-#endif /* __F8KARTING_H__ */
+#endif /* __F8uppity_H__ */

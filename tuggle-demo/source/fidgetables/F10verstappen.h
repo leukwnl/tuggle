@@ -1,13 +1,13 @@
 //
-//  F10throttle.h
+//  F10verstappen.h
 //  Tuggle
 //
 //  Tenth Tuggable: Realistic car simulator with button-based shifting.
 //  Demonstrates all HapticPlayer features with realistic RPM mechanics.
 //
 
-#ifndef __F10THROTTLE_H__
-#define __F10THROTTLE_H__
+#ifndef __F10verstappen_H__
+#define __F10verstappen_H__
 
 #include "FidgetableView.h"
 #include <cugl/core/input/CUHaptics.h>
@@ -32,10 +32,10 @@ enum class Gear
  * - Button-based gear shifting (up/down buttons)
  * - RPM gauge with needle (0-100% of current gear's max)
  * - Realistic gear mechanics with shift windows
- * - Pedal-style throttle button
+ * - Pedal-style verstappen button
  * - Continuous engine haptics via HapticPlayer
  */
-class F10throttle : public FidgetableView
+class F10verstappen : public FidgetableView
 {
 protected:
   // === Visual Elements ===
@@ -58,9 +58,9 @@ protected:
   /** Shift down button */
   std::shared_ptr<cugl::scene2::Button> _shiftDownButton;
 
-  /** The throttle pedal button */
-  std::shared_ptr<cugl::scene2::Button> _throttleButton;
-  std::shared_ptr<cugl::scene2::PolygonNode> _throttleNode;
+  /** The verstappen pedal button */
+  std::shared_ptr<cugl::scene2::Button> _verstappenButton;
+  std::shared_ptr<cugl::scene2::PolygonNode> _verstappenNode;
 
   // === State ===
 
@@ -70,7 +70,7 @@ protected:
   /** Current RPM (0 to max for current gear) */
   float _currentRPM;
 
-  /** Whether throttle is currently pressed */
+  /** Whether verstappen is currently pressed */
   bool _isThrottling;
 
   /** Whether the engine is running */
@@ -107,7 +107,7 @@ protected:
   void buildContent() override;
   void buildGauge();
   void buildGearControls();
-  void buildThrottlePedal();
+  void buildverstappenPedal();
 
   /** Gets the max RPM for a given gear */
   float getMaxRPMForGear(Gear gear);
@@ -142,11 +142,11 @@ protected:
   createRect(float width, float height, cugl::Color4 color);
 
 public:
-  F10throttle();
-  virtual ~F10throttle();
+  F10verstappen();
+  virtual ~F10verstappen();
 
   bool init(int index, const cugl::Size &pageSize) override;
-  static std::shared_ptr<F10throttle> alloc(const cugl::Size &pageSize);
+  static std::shared_ptr<F10verstappen> alloc(const cugl::Size &pageSize);
   void dispose() override;
   void update(float timestep) override;
   void setActive(bool active) override;
@@ -160,4 +160,4 @@ public:
   void stopEngine();
 };
 
-#endif /* __F10THROTTLE_H__ */
+#endif /* __F10verstappen_H__ */

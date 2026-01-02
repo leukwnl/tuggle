@@ -15,9 +15,9 @@ using namespace cugl::scene2;
 
 // Button appearance
 #define BUTTON_RADIUS_RATIO 0.25f
-#define BUTTON_COLOR_NORMAL Color4(100, 149, 237, 255)   // Cornflower blue
-#define BUTTON_COLOR_PRESSED Color4(70, 119, 207, 255)   // Darker blue
-#define BUTTON_COLOR_INACTIVE Color4(150, 180, 220, 255) // Dimmed blue
+#define BUTTON_COLOR_NORMAL   Color4(220, 53, 69, 255)   // Red
+#define BUTTON_COLOR_PRESSED  Color4(176, 42, 55, 255)   // Darker red
+#define BUTTON_COLOR_INACTIVE Color4(230, 150, 150, 255) // Dimmed red
 
 #pragma mark -
 #pragma mark Constructors

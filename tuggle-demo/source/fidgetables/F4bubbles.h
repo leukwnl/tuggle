@@ -1,18 +1,18 @@
 //
-//  F4traffic.h
+//  F4bubbles.h
 //  Tuggle
 //
 //  Fourth Tuggable: three hold-to-pop buttons.
 //
 
-#ifndef __F4TRAFFIC_H__
-#define __F4TRAFFIC_H__
+#ifndef __F4bubbles_H__
+#define __F4bubbles_H__
 
 #include "FidgetableView.h"
 #include <cugl/core/input/CUHaptics.h>
 #include <array>
 
-#define NUM_TRAFFIC_BUTTONS 3
+#define NUM_bubbles_BUTTONS 3
 
 /** Button state after popping */
 enum class PopState
@@ -28,12 +28,12 @@ enum class PopState
  * Three buttons in a column that grow when held and pop after 3 seconds.
  * Each has different haptic sharpness, with accelerating vibrations.
  */
-class F4traffic : public FidgetableView
+class F4bubbles : public FidgetableView
 {
 protected:
-  std::array<std::shared_ptr<cugl::scene2::Button>, NUM_TRAFFIC_BUTTONS> _buttons;
-  std::array<std::shared_ptr<cugl::scene2::PolygonNode>, NUM_TRAFFIC_BUTTONS> _normalNodes;
-  std::array<std::shared_ptr<cugl::scene2::PolygonNode>, NUM_TRAFFIC_BUTTONS> _pressedNodes;
+  std::array<std::shared_ptr<cugl::scene2::Button>, NUM_bubbles_BUTTONS> _buttons;
+  std::array<std::shared_ptr<cugl::scene2::PolygonNode>, NUM_bubbles_BUTTONS> _normalNodes;
+  std::array<std::shared_ptr<cugl::scene2::PolygonNode>, NUM_bubbles_BUTTONS> _pressedNodes;
 
   /** Which button is currently being held (-1 if none) */
   int _heldButton;
@@ -45,13 +45,13 @@ protected:
   float _currentScale;
 
   /** Current alpha for fading buttons */
-  std::array<float, NUM_TRAFFIC_BUTTONS> _alphas;
+  std::array<float, NUM_bubbles_BUTTONS> _alphas;
 
   /** Pop state for each button */
-  std::array<PopState, NUM_TRAFFIC_BUTTONS> _popStates;
+  std::array<PopState, NUM_bubbles_BUTTONS> _popStates;
 
   /** Timer for respawn delay */
-  std::array<float, NUM_TRAFFIC_BUTTONS> _stateTimers;
+  std::array<float, NUM_bubbles_BUTTONS> _stateTimers;
 
   /** Haptic timer for accelerating pulses */
   float _hapticTimer;
@@ -74,11 +74,11 @@ protected:
   void applyButtonAlpha(int index);
 
 public:
-  F4traffic();
-  virtual ~F4traffic();
+  F4bubbles();
+  virtual ~F4bubbles();
 
   bool init(int index, const cugl::Size &pageSize) override;
-  static std::shared_ptr<F4traffic> alloc(const cugl::Size &pageSize);
+  static std::shared_ptr<F4bubbles> alloc(const cugl::Size &pageSize);
   void dispose() override;
   void update(float timestep) override;
   void setActive(bool active) override;
@@ -86,4 +86,4 @@ public:
   void deactivateInputs() override;
 };
 
-#endif /* __F4TRAFFIC_H__ */
+#endif /* __F4bubbles_H__ */

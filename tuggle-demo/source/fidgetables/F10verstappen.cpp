@@ -1,12 +1,12 @@
 //
-//  F10throttle.cpp
+//  F10verstappen.cpp
 //  Tuggle
 //
-//  Tenth Tuggable: Realistic car simulator with button-based shifting and pedal throttle.
+//  Tenth Tuggable: Realistic car simulator with button-based shifting and pedal verstappen.
 //  Demonstrates HapticPlayer for continuous haptic feedback.
 //
 
-#include "F10throttle.h"
+#include "F10verstappen.h"
 #include "InputController.h"
 #include <cmath>
 
@@ -22,25 +22,25 @@ static const Color4 BUTTON_COLOR(70, 70, 80, 255);
 static const Color4 BUTTON_PRESSED_COLOR(100, 160, 100, 255);
 static const Color4 SHIFT_UP_COLOR(80, 80, 90, 255);
 static const Color4 SHIFT_DOWN_COLOR(80, 80, 90, 255);
-static const Color4 THROTTLE_COLOR(60, 60, 65, 255);
-static const Color4 THROTTLE_PRESSED_COLOR(80, 160, 80, 255);
+static const Color4 verstappen_COLOR(60, 60, 65, 255);
+static const Color4 verstappen_PRESSED_COLOR(80, 160, 80, 255);
 static const Color4 STALL_COLOR(255, 60, 60, 255);
 static const Color4 HUB_COLOR(50, 50, 55, 255);
 
-F10throttle::F10throttle()
+F10verstappen::F10verstappen()
     : FidgetableView(), _currentGear(Gear::NEUTRAL), _currentRPM(0.0f),
       _isThrottling(false), _engineRunning(false), _isStalled(false) {}
 
-F10throttle::~F10throttle() { dispose(); }
+F10verstappen::~F10verstappen() { dispose(); }
 
-bool F10throttle::init(int index, const Size &pageSize)
+bool F10verstappen::init(int index, const Size &pageSize)
 {
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F10throttle> F10throttle::alloc(const Size &pageSize)
+std::shared_ptr<F10verstappen> F10verstappen::alloc(const Size &pageSize)
 {
-  auto result = std::make_shared<F10throttle>();
+  auto result = std::make_shared<F10verstappen>();
   if (result->init(10, pageSize))
   {
     return result;
@@ -48,19 +48,19 @@ std::shared_ptr<F10throttle> F10throttle::alloc(const Size &pageSize)
   return nullptr;
 }
 
-void F10throttle::dispose()
+void F10verstappen::dispose()
 {
   stopEngine();
   if (_shiftUpButton)
     _shiftUpButton->deactivate();
   if (_shiftDownButton)
     _shiftDownButton->deactivate();
-  if (_throttleButton)
-    _throttleButton->deactivate();
+  if (_verstappenButton)
+    _verstappenButton->deactivate();
   FidgetableView::dispose();
 }
 
-std::shared_ptr<PolygonNode> F10throttle::createCircle(float radius,
+std::shared_ptr<PolygonNode> F10verstappen::createCircle(float radius,
                                                        Color4 color)
 {
   constexpr int segments = 48;
@@ -89,7 +89,7 @@ std::shared_ptr<PolygonNode> F10throttle::createCircle(float radius,
   return node;
 }
 
-std::shared_ptr<PolygonNode> F10throttle::createRect(float width, float height,
+std::shared_ptr<PolygonNode> F10verstappen::createRect(float width, float height,
                                                      Color4 color)
 {
   std::vector<Vec2> vertices = {Vec2(0, 0), Vec2(width, 0), Vec2(width, height),
@@ -102,18 +102,18 @@ std::shared_ptr<PolygonNode> F10throttle::createRect(float width, float height,
   return node;
 }
 
-void F10throttle::buildContent()
+void F10verstappen::buildContent()
 {
   buildGauge();
   buildGearControls();
-  buildThrottlePedal();
+  buildverstappenPedal();
 
   _currentRPM = 0.0f;
   _engineRunning = false;
   _isStalled = false;
 }
 
-void F10throttle::buildGauge()
+void F10verstappen::buildGauge()
 {
   Vec2 center(_pageSize.width / 2, _pageSize.height * GAUGE_CENTER_Y_RATIO);
   float radius = _pageSize.width * GAUGE_RADIUS_RATIO;
@@ -162,7 +162,7 @@ void F10throttle::buildGauge()
   _rootNode->addChild(hub);
 }
 
-void F10throttle::buildGearControls()
+void F10verstappen::buildGearControls()
 {
   float centerX = _pageSize.width / 2;
   float controlsY = _pageSize.height * 0.40f;
@@ -256,24 +256,24 @@ void F10throttle::buildGearControls()
   _rootNode->addChild(upArrow);
 }
 
-void F10throttle::buildThrottlePedal()
+void F10verstappen::buildverstappenPedal()
 {
   // Rectangular pedal at the bottom
   float pedalWidth = _pageSize.width * 0.35f;
   float pedalHeight = _pageSize.height * 0.12f;
   Vec2 pedalPos(_pageSize.width / 2, _pageSize.height * 0.10f);
 
-  auto normalNode = createRect(pedalWidth, pedalHeight, THROTTLE_COLOR);
+  auto normalNode = createRect(pedalWidth, pedalHeight, verstappen_COLOR);
   auto pressedNode =
-      createRect(pedalWidth, pedalHeight, THROTTLE_PRESSED_COLOR);
-  _throttleNode = normalNode;
+      createRect(pedalWidth, pedalHeight, verstappen_PRESSED_COLOR);
+  _verstappenNode = normalNode;
 
-  _throttleButton = Button::alloc(normalNode, pressedNode);
-  _throttleButton->setAnchor(Vec2::ANCHOR_CENTER);
-  _throttleButton->setPosition(pedalPos);
-  _throttleButton->setName("f10_throttle");
+  _verstappenButton = Button::alloc(normalNode, pressedNode);
+  _verstappenButton->setAnchor(Vec2::ANCHOR_CENTER);
+  _verstappenButton->setPosition(pedalPos);
+  _verstappenButton->setName("f10_verstappen");
 
-  _throttleButton->addListener([this](const std::string &name, bool down)
+  _verstappenButton->addListener([this](const std::string &name, bool down)
                                {
     if (_isActive) {
       bool wasThrottling = _isThrottling;
@@ -287,16 +287,16 @@ void F10throttle::buildThrottlePedal()
         } else if (!_engineRunning) {
           startEngine();
         } else if (!wasThrottling) {
-          // Throttle pressed - kick of acceleration
+          // verstappen pressed - kick of acceleration
           Haptics::transient(0.6f, 0.25f);
         }
       } else if (wasThrottling && _engineRunning) {
-        // Throttle released - engine settling back
+        // verstappen released - engine settling back
         Haptics::transient(0.4f, 0.15f);
       }
     } });
 
-  _rootNode->addChild(_throttleButton);
+  _rootNode->addChild(_verstappenButton);
 
   // Pedal texture lines
   int numLines = 5;
@@ -309,7 +309,7 @@ void F10throttle::buildThrottlePedal()
   }
 }
 
-float F10throttle::getMaxRPMForGear(Gear gear)
+float F10verstappen::getMaxRPMForGear(Gear gear)
 {
   switch (gear)
   {
@@ -329,19 +329,19 @@ float F10throttle::getMaxRPMForGear(Gear gear)
   return 3000.0f;
 }
 
-float F10throttle::getShiftWindowMinRPM()
+float F10verstappen::getShiftWindowMinRPM()
 {
   // Must be in top 15% of current gear's max RPM to shift up
   float maxRPM = getMaxRPMForGear(_currentGear);
   return maxRPM * (1.0f - SHIFT_WINDOW_PERCENT);
 }
 
-bool F10throttle::isInShiftWindow()
+bool F10verstappen::isInShiftWindow()
 {
   return _currentRPM >= getShiftWindowMinRPM();
 }
 
-void F10throttle::shiftUp()
+void F10verstappen::shiftUp()
 {
   // Can't shift up from neutral without being in a gear first
   if (_currentGear == Gear::NEUTRAL)
@@ -412,7 +412,7 @@ void F10throttle::shiftUp()
   updateHaptics();
 }
 
-void F10throttle::shiftDown()
+void F10verstappen::shiftDown()
 {
   // Can't shift down from neutral or 1st
   if (_currentGear == Gear::NEUTRAL || _currentGear == Gear::GEAR_1)
@@ -456,7 +456,7 @@ void F10throttle::shiftDown()
   updateHaptics();
 }
 
-void F10throttle::stallEngine()
+void F10verstappen::stallEngine()
 {
   _isStalled = true;
   _engineRunning = false;
@@ -488,7 +488,7 @@ void F10throttle::stallEngine()
   updateGearIndicator();
 }
 
-void F10throttle::startEngine()
+void F10verstappen::startEngine()
 {
   if (_engineRunning)
     return;
@@ -509,7 +509,7 @@ void F10throttle::startEngine()
   updateGearIndicator();
 }
 
-void F10throttle::stopEngine()
+void F10verstappen::stopEngine()
 {
   if (!_engineRunning)
     return;
@@ -519,7 +519,7 @@ void F10throttle::stopEngine()
   _enginePlayer.stop();
 }
 
-void F10throttle::updateGearIndicator()
+void F10verstappen::updateGearIndicator()
 {
   // Update gear bars
   int gearNum = 0;
@@ -583,7 +583,7 @@ void F10throttle::updateGearIndicator()
   }
 }
 
-void F10throttle::updateGaugeVisuals()
+void F10verstappen::updateGaugeVisuals()
 {
   float maxRPM = getMaxRPMForGear(_currentGear);
   // Needle shows 0-100% of CURRENT GEAR's max
@@ -622,7 +622,7 @@ void F10throttle::updateGaugeVisuals()
   }
 }
 
-void F10throttle::updateHaptics()
+void F10verstappen::updateHaptics()
 {
   if (!_engineRunning)
     return;
@@ -722,7 +722,7 @@ void F10throttle::updateHaptics()
   _enginePlayer.setSharpness(sharpness);
 }
 
-void F10throttle::update(float timestep)
+void F10verstappen::update(float timestep)
 {
   FidgetableView::update(timestep);
 
@@ -787,7 +787,7 @@ void F10throttle::update(float timestep)
   updateGaugeVisuals();
 }
 
-void F10throttle::setActive(bool active)
+void F10verstappen::setActive(bool active)
 {
   FidgetableView::setActive(active);
 
@@ -801,22 +801,22 @@ void F10throttle::setActive(bool active)
   }
 }
 
-void F10throttle::activateInputs()
+void F10verstappen::activateInputs()
 {
   if (_shiftUpButton)
     _shiftUpButton->activate();
   if (_shiftDownButton)
     _shiftDownButton->activate();
-  if (_throttleButton)
-    _throttleButton->activate();
+  if (_verstappenButton)
+    _verstappenButton->activate();
 }
 
-void F10throttle::deactivateInputs()
+void F10verstappen::deactivateInputs()
 {
   if (_shiftUpButton)
     _shiftUpButton->deactivate();
   if (_shiftDownButton)
     _shiftDownButton->deactivate();
-  if (_throttleButton)
-    _throttleButton->deactivate();
+  if (_verstappenButton)
+    _verstappenButton->deactivate();
 }

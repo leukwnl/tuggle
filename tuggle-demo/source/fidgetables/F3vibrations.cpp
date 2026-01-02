@@ -1,5 +1,5 @@
 //
-//  F3snakeyes.cpp
+//  F3vibrations.cpp
 //  Tuggle
 //
 //  Third Tuggable: Six toggle buttons with continuous haptics.
@@ -8,7 +8,7 @@
 //    Top to bottom = slow, medium, fast interval speeds
 //
 
-#include "F3snakeyes.h"
+#include "F3vibrations.h"
 
 using namespace cugl;
 using namespace cugl::scene2;
@@ -53,7 +53,7 @@ static const float BUTTON_INTERVALS[] = {0.12f, 0.12f, 0.06f,
 #pragma mark -
 #pragma mark Constructors
 
-F3snakeyes::F3snakeyes() : FidgetableView(), _buttonRadius(50.0f)
+F3vibrations::F3vibrations() : FidgetableView(), _buttonRadius(50.0f)
 {
   for (int i = 0; i < NUM_BUTTONS; i++)
   {
@@ -63,17 +63,17 @@ F3snakeyes::F3snakeyes() : FidgetableView(), _buttonRadius(50.0f)
   }
 }
 
-F3snakeyes::~F3snakeyes() { dispose(); }
+F3vibrations::~F3vibrations() { dispose(); }
 
-bool F3snakeyes::init(int index, const cugl::Size &pageSize)
+bool F3vibrations::init(int index, const cugl::Size &pageSize)
 {
   _buttonRadius = pageSize.width * BUTTON_RADIUS_RATIO;
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F3snakeyes> F3snakeyes::alloc(const cugl::Size &pageSize)
+std::shared_ptr<F3vibrations> F3vibrations::alloc(const cugl::Size &pageSize)
 {
-  auto result = std::make_shared<F3snakeyes>();
+  auto result = std::make_shared<F3vibrations>();
   if (result->init(3, pageSize))
   {
     return result;
@@ -81,7 +81,7 @@ std::shared_ptr<F3snakeyes> F3snakeyes::alloc(const cugl::Size &pageSize)
   return nullptr;
 }
 
-void F3snakeyes::dispose()
+void F3vibrations::dispose()
 {
   for (int i = 0; i < NUM_BUTTONS; i++)
   {
@@ -99,7 +99,7 @@ void F3snakeyes::dispose()
 #pragma mark -
 #pragma mark Content Building
 
-void F3snakeyes::buildContent()
+void F3vibrations::buildContent()
 {
   float spacing = _pageSize.width * SPACING_RATIO;
   float gridWidth = GRID_COLS * (_buttonRadius * 2) + (GRID_COLS - 1) * spacing;
@@ -125,7 +125,7 @@ void F3snakeyes::buildContent()
     _buttons[i] = Button::alloc(normalNode, pressedNode);
     _buttons[i]->setAnchor(Vec2::ANCHOR_CENTER);
     _buttons[i]->setPosition(pos);
-    _buttons[i]->setName("f3snakeyes_btn_" + std::to_string(i));
+    _buttons[i]->setName("f3vibrations_btn_" + std::to_string(i));
 
     int btnIndex = i;
     _buttons[i]->addListener(
@@ -144,12 +144,12 @@ void F3snakeyes::buildContent()
 #pragma mark -
 #pragma mark Interaction
 
-void F3snakeyes::onToggle(int index)
+void F3vibrations::onToggle(int index)
 {
   _toggleStates[index] = !_toggleStates[index];
   _hapticTimers[index] = 0.0f; // Reset timer to play immediately
 
-  CULog("F3snakeyes button %d toggled %s (sharpness=%.1f, interval=%.0fms)",
+  CULog("F3vibrations button %d toggled %s (sharpness=%.1f, interval=%.0fms)",
         index, _toggleStates[index] ? "ON" : "OFF", BUTTON_SHARPNESS[index],
         BUTTON_INTERVALS[index] * 1000);
 
@@ -164,7 +164,7 @@ void F3snakeyes::onToggle(int index)
   }
 }
 
-void F3snakeyes::update(float timestep)
+void F3vibrations::update(float timestep)
 {
   FidgetableView::update(timestep);
 
@@ -208,7 +208,7 @@ void F3snakeyes::update(float timestep)
   }
 }
 
-void F3snakeyes::setActive(bool active)
+void F3vibrations::setActive(bool active)
 {
   FidgetableView::setActive(active);
 
@@ -228,7 +228,7 @@ void F3snakeyes::setActive(bool active)
   }
 }
 
-void F3snakeyes::activateInputs()
+void F3vibrations::activateInputs()
 {
   for (auto &btn : _buttons)
   {
@@ -237,7 +237,7 @@ void F3snakeyes::activateInputs()
   }
 }
 
-void F3snakeyes::deactivateInputs()
+void F3vibrations::deactivateInputs()
 {
   for (auto &btn : _buttons)
   {

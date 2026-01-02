@@ -1,12 +1,12 @@
 //
-//  F3snakeyes.h
+//  F3vibrations.h
 //  Tuggle
 //
 //  Third Tuggable: six toggle buttons with continuous haptics.
 //
 
-#ifndef __F3SNAKEYES_H__
-#define __F3SNAKEYES_H__
+#ifndef __F3vibrations_H__
+#define __F3vibrations_H__
 
 #include "FidgetableView.h"
 #include <cugl/core/input/CUHaptics.h>
@@ -22,7 +22,7 @@
  * Right column: Ticks (high sharpness) at slow/medium/fast speeds
  * All at heavy intensity. Each button toggles on/off.
  */
-class F3snakeyes : public FidgetableView
+class F3vibrations : public FidgetableView
 {
 protected:
   /** The interactive buttons */
@@ -53,11 +53,11 @@ protected:
   void onToggle(int index);
 
 public:
-  F3snakeyes();
-  virtual ~F3snakeyes();
+  F3vibrations();
+  virtual ~F3vibrations();
 
   bool init(int index, const cugl::Size &pageSize) override;
-  static std::shared_ptr<F3snakeyes> alloc(const cugl::Size &pageSize);
+  static std::shared_ptr<F3vibrations> alloc(const cugl::Size &pageSize);
   void dispose() override;
   void update(float timestep) override;
   void setActive(bool active) override;
@@ -65,4 +65,4 @@ public:
   void deactivateInputs() override;
 };
 
-#endif /* __F3SNAKEYES_H__ */
+#endif /* __F3vibrations_H__ */

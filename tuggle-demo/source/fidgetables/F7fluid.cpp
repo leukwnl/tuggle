@@ -1,11 +1,11 @@
 //
-//  F7samba.cpp
+//  F7fluid.cpp
 //  Tuggle
 //
-//  Seventh Tuggable: maracas simulation with physics.
+//  Seventh Tuggable: fluid simulation with physics.
 //
 
-#include "F7samba.h"
+#include "F7fluid.h"
 #include <cmath>
 #include <cstdlib>
 #include <cugl/cugl.h>
@@ -39,15 +39,15 @@ static const Color4 PARTICLE_COLORS_INACTIVE[] = {
 #pragma mark -
 #pragma mark Constructors
 
-F7samba::F7samba()
+F7fluid::F7fluid()
     : FidgetableView(), _containerRadius(150.0f), _particleRadius(12.0f),
       _maxParticleDistance(130.0f), _wallCollisionIntensity(0.0f),
       _wallCollisionCount(0), _ballCollisionIntensity(0.0f),
       _ballCollisionCount(0), _hapticCooldown(0.0f) {}
 
-F7samba::~F7samba() { dispose(); }
+F7fluid::~F7fluid() { dispose(); }
 
-bool F7samba::init(int index, const cugl::Size &pageSize)
+bool F7fluid::init(int index, const cugl::Size &pageSize)
 {
   // Calculate dimensions based on page size
   _containerRadius = pageSize.width * CONTAINER_RADIUS_RATIO;
@@ -58,9 +58,9 @@ bool F7samba::init(int index, const cugl::Size &pageSize)
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F7samba> F7samba::alloc(const cugl::Size &pageSize)
+std::shared_ptr<F7fluid> F7fluid::alloc(const cugl::Size &pageSize)
 {
-  std::shared_ptr<F7samba> result = std::make_shared<F7samba>();
+  std::shared_ptr<F7fluid> result = std::make_shared<F7fluid>();
   if (result->init(7, pageSize))
   {
     return result;
@@ -68,7 +68,7 @@ std::shared_ptr<F7samba> F7samba::alloc(const cugl::Size &pageSize)
   return nullptr;
 }
 
-void F7samba::dispose()
+void F7fluid::dispose()
 {
   _containerNode = nullptr;
   for (int i = 0; i < NUM_PARTICLES; i++)
@@ -82,7 +82,7 @@ void F7samba::dispose()
 #pragma mark Content Building
 
 std::shared_ptr<PolygonNode>
-F7samba::createRing(float innerRadius, float outerRadius, const Color4 &color)
+F7fluid::createRing(float innerRadius, float outerRadius, const Color4 &color)
 {
 
   const int segments = 64;
@@ -123,7 +123,7 @@ F7samba::createRing(float innerRadius, float outerRadius, const Color4 &color)
   return node;
 }
 
-void F7samba::buildContent()
+void F7fluid::buildContent()
 {
   _containerCenter = Vec2(_pageSize.width / 2, _pageSize.height / 2);
 
@@ -172,7 +172,7 @@ void F7samba::buildContent()
 #pragma mark -
 #pragma mark Physics
 
-void F7samba::updatePhysics(float timestep)
+void F7fluid::updatePhysics(float timestep)
 {
   // Get accelerometer input
   Accelerometer *accel = Input::get<Accelerometer>();
@@ -266,7 +266,7 @@ void F7samba::updatePhysics(float timestep)
   }
 }
 
-void F7samba::resolveParticleCollision(int a, int b)
+void F7fluid::resolveParticleCollision(int a, int b)
 {
   Vec2 delta = _particles[b].position - _particles[a].position;
   float dist = delta.length();
@@ -318,7 +318,7 @@ void F7samba::resolveParticleCollision(int a, int b)
   }
 }
 
-void F7samba::resolveWallCollision(int index)
+void F7fluid::resolveWallCollision(int index)
 {
   float dist = _particles[index].position.length();
 
@@ -356,7 +356,7 @@ void F7samba::resolveWallCollision(int index)
 #pragma mark -
 #pragma mark Haptics
 
-void F7samba::triggerCollisionHaptic(float timestep)
+void F7fluid::triggerCollisionHaptic(float timestep)
 {
   _hapticCooldown -= timestep;
   if (_hapticCooldown > 0.0f)
@@ -411,7 +411,7 @@ void F7samba::triggerCollisionHaptic(float timestep)
 #pragma mark -
 #pragma mark Lifecycle
 
-void F7samba::update(float timestep)
+void F7fluid::update(float timestep)
 {
   FidgetableView::update(timestep);
 
@@ -421,7 +421,7 @@ void F7samba::update(float timestep)
   }
 }
 
-void F7samba::setActive(bool active)
+void F7fluid::setActive(bool active)
 {
   FidgetableView::setActive(active);
 
@@ -456,12 +456,12 @@ void F7samba::setActive(bool active)
   }
 }
 
-void F7samba::activateInputs()
+void F7fluid::activateInputs()
 {
   // No touch inputs - uses accelerometer only
 }
 
-void F7samba::deactivateInputs()
+void F7fluid::deactivateInputs()
 {
   // No touch inputs to deactivate
 }

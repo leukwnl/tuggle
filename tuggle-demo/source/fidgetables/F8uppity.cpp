@@ -1,11 +1,11 @@
 //
-//  F8karting.cpp
+//  F8uppity.cpp
 //  Tuggle
 //
-//  Eigth Tuggable: Steering wheel with rotation haptics.
+//  Eigth Tuggable: Rotating wheel, with a needle always pointing up.
 //
 
-#include "F8karting.h"
+#include "F8uppity.h"
 #include <cugl/cugl.h>
 #include <cmath>
 
@@ -34,22 +34,22 @@ using namespace cugl::scene2;
 #pragma mark -
 #pragma mark Constructors
 
-F8karting::F8karting()
+F8uppity::F8uppity()
     : FidgetableView(), _wheelRadius(150.0f), _hubRadius(30.0f),
       _currentAngle(0.0f), _lastTickIndex(0), _smoothedAngle(0.0f) {}
 
-F8karting::~F8karting() { dispose(); }
+F8uppity::~F8uppity() { dispose(); }
 
-bool F8karting::init(int index, const cugl::Size &pageSize)
+bool F8uppity::init(int index, const cugl::Size &pageSize)
 {
   _wheelRadius = pageSize.width * WHEEL_RADIUS_RATIO;
   _hubRadius = pageSize.width * HUB_RADIUS_RATIO;
   return FidgetableView::init(index, pageSize);
 }
 
-std::shared_ptr<F8karting> F8karting::alloc(const cugl::Size &pageSize)
+std::shared_ptr<F8uppity> F8uppity::alloc(const cugl::Size &pageSize)
 {
-  std::shared_ptr<F8karting> result = std::make_shared<F8karting>();
+  std::shared_ptr<F8uppity> result = std::make_shared<F8uppity>();
   if (result->init(8, pageSize))
   {
     return result;
@@ -57,7 +57,7 @@ std::shared_ptr<F8karting> F8karting::alloc(const cugl::Size &pageSize)
   return nullptr;
 }
 
-void F8karting::dispose()
+void F8uppity::dispose()
 {
   _wheelNode = nullptr;
   _hubNode = nullptr;
@@ -70,7 +70,7 @@ void F8karting::dispose()
 #pragma mark Content Building
 
 std::shared_ptr<PolygonNode>
-F8karting::createRing(float innerRadius, float outerRadius,
+F8uppity::createRing(float innerRadius, float outerRadius,
                       const Color4 &color)
 {
   const int segments = 64;
@@ -111,7 +111,7 @@ F8karting::createRing(float innerRadius, float outerRadius,
   return node;
 }
 
-std::shared_ptr<PolygonNode> F8karting::createBar(float width, float height,
+std::shared_ptr<PolygonNode> F8uppity::createBar(float width, float height,
                                                   const Color4 &color)
 {
   std::vector<Vec2> vertices = {Vec2(-width / 2, 0), Vec2(width / 2, 0),
@@ -125,7 +125,7 @@ std::shared_ptr<PolygonNode> F8karting::createBar(float width, float height,
   return node;
 }
 
-void F8karting::buildContent()
+void F8uppity::buildContent()
 {
   _wheelCenter = Vec2(_pageSize.width / 2, _pageSize.height / 2);
 
@@ -181,14 +181,14 @@ void F8karting::buildContent()
 #pragma mark -
 #pragma mark Rotation Logic
 
-int F8karting::angleToTickIndex(float angle)
+int F8uppity::angleToTickIndex(float angle)
 {
   // Convert angle to tick index (works for full 360 degrees)
   // Each tick is TICK_ANGLE radians apart
   return (int)std::floor(angle / TICK_ANGLE);
 }
 
-void F8karting::update(float timestep)
+void F8uppity::update(float timestep)
 {
   FidgetableView::update(timestep);
 
@@ -267,7 +267,7 @@ void F8karting::update(float timestep)
   }
 }
 
-void F8karting::setActive(bool active)
+void F8uppity::setActive(bool active)
 {
   FidgetableView::setActive(active);
 
@@ -301,12 +301,12 @@ void F8karting::setActive(bool active)
   }
 }
 
-void F8karting::activateInputs()
+void F8uppity::activateInputs()
 {
   // No touch inputs - uses accelerometer
 }
 
-void F8karting::deactivateInputs()
+void F8uppity::deactivateInputs()
 {
   // No touch inputs to deactivate
 }

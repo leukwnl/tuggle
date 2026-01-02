@@ -21,14 +21,14 @@
 // Forward declarations for all fidgetable types
 #include "fidgetables/F1tancho.h"
 #include "fidgetables/F2sampler.h"
-#include "fidgetables/F3snakeyes.h"
-#include "fidgetables/F4traffic.h"
+#include "fidgetables/F3vibrations.h"
+#include "fidgetables/F4bubbles.h"
 #include "fidgetables/F5fellowship.h"
 #include "fidgetables/F6katamari.h"
-#include "fidgetables/F7samba.h"
-#include "fidgetables/F8karting.h"
+#include "fidgetables/F7fluid.h"
+#include "fidgetables/F8uppity.h"
 #include "fidgetables/F9soundboard.h"
-#include "fidgetables/F10throttle.h"
+#include "fidgetables/F10verstappen.h"
 
 /** Number of fidgetables in the carousel */
 #define NUM_FIDGETABLES 10
