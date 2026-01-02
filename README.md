@@ -16,7 +16,8 @@ While the examples presented here do not exhaust the full capabilities of `tugl`
 
 ## Usage
 There are two ways to access the tuggle demo:
-- Download from this [Testflight link]().
+<!-- - Download from this [Testflight link](). -->
+- Testflight link coming soon.
 - Clone this repo and build with the included version of CUGL in this repo using the command `python cugl tuggle-demo` at the root that contains both folders.
 
 ## Tuggables
