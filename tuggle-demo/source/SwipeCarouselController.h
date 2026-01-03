@@ -94,6 +94,12 @@ protected:
   /** Currently active page index */
   int _activePageIndex;
 
+  /** Container for pagination dots */
+  std::shared_ptr<cugl::scene2::SceneNode> _paginationContainer;
+
+  /** Array of pagination dot nodes */
+  std::vector<std::shared_ptr<cugl::scene2::PolygonNode>> _paginationDots;
+
   // Drag tracking state
   /** Whether we're currently dragging the carousel */
   bool _isDragging;
@@ -113,10 +119,20 @@ protected:
   void buildFidgetables();
 
   /**
+   * Creates the pagination dots at the bottom of the screen.
+   */
+  void buildPaginationDots();
+
+  /**
    * Updates the active page based on current scroll position.
    * Activates/deactivates fidgetables as needed.
    */
   void updateActivePage();
+
+  /**
+   * Updates the pagination dots to highlight the current page.
+   */
+  void updatePaginationDots();
 
   /**
    * Calculates the nearest page index to snap to.

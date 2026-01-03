@@ -48,6 +48,9 @@ bool SwipeCarouselController::init(std::shared_ptr<Scene2> scene,
   // Add container to scene
   _scene->addChild(_container);
 
+  // Build pagination dots
+  buildPaginationDots();
+
   // Set first page as active
   _activePageIndex = 0;
   _scrollPos = 0;
@@ -79,6 +82,12 @@ void SwipeCarouselController::dispose() {
     }
   }
   _fidgetables.clear();
+
+  if (_paginationContainer != nullptr) {
+    _paginationContainer->removeFromParent();
+    _paginationContainer = nullptr;
+  }
+  _paginationDots.clear();
 
   if (_container != nullptr) {
     _container->removeFromParent();
@@ -172,13 +181,89 @@ void SwipeCarouselController::buildFidgetables() {
     f9->setHapticFile(7, "trick.ahap");
     f9->setHapticFile(8, "sans.ahap");
 
-
-
   // Fidgetable 10 - verstappen (HapticPlayer demo)
   auto f10 = F10verstappen::alloc(pageSize);
   f10->getNode()->setPosition(Vec2(9 * _pageWidth, 0));
   _container->addChild(f10->getNode());
   _fidgetables.push_back(f10);
+}
+
+void SwipeCarouselController::buildPaginationDots() {
+  // Create a container for the pagination dots
+  _paginationContainer = SceneNode::alloc();
+  _paginationContainer->setAnchor(Vec2::ANCHOR_BOTTOM_CENTER);
+  
+  // Position at the bottom center of the page
+  float bottomMargin = 60.0f; // Distance from bottom of screen
+  _paginationContainer->setPosition(Vec2(_pageWidth / 2, bottomMargin));
+  
+  // Add to scene (not to the scrolling container)
+  _scene->addChild(_paginationContainer);
+  
+  // Dot parameters
+  float dotRadius = 6.0f;
+  float dotSpacing = 20.0f;
+  float totalWidth = (NUM_FIDGETABLES - 1) * dotSpacing;
+  int segments = 20; // Number of segments for circle smoothness
+  
+  // Create dots
+  for (int i = 0; i < NUM_FIDGETABLES; i++) {
+    // Create a filled circle using a polygon
+    std::vector<Vec2> vertices;
+    vertices.reserve(segments + 1);
+
+    // Center vertex
+    vertices.push_back(Vec2::ZERO);
+
+    // Circle vertices
+    for (int j = 0; j <= segments; j++) {
+      float angle = (float)j / (float)segments * 2.0f * M_PI;
+      float x = dotRadius * cosf(angle);
+      float y = dotRadius * sinf(angle);
+      vertices.push_back(Vec2(x, y));
+    }
+
+    // Create triangle fan indices
+    std::vector<Uint32> indices;
+    indices.reserve(segments * 3);
+    for (int j = 1; j <= segments; j++) {
+      indices.push_back(0);     // Center
+      indices.push_back(j);     // Current vertex
+      indices.push_back(j + 1); // Next vertex (wraps around)
+    }
+
+    // Create the polygon
+    Poly2 poly(vertices, indices);
+
+    // Create and configure the node
+    auto dot = scene2::PolygonNode::allocWithPoly(poly);
+    dot->setAnchor(Vec2::ANCHOR_CENTER);
+    
+    // Position dots horizontally centered
+    float xPos = -totalWidth / 2 + i * dotSpacing;
+    dot->setPosition(Vec2(xPos, 0));
+    
+    // Set initial color (inactive: semi-transparent white)
+    dot->setColor(Color4(255, 255, 255, 100));
+    
+    _paginationContainer->addChild(dot);
+    _paginationDots.push_back(dot);
+  }
+  
+  // Update to highlight the first dot
+  updatePaginationDots();
+}
+
+void SwipeCarouselController::updatePaginationDots() {
+  for (int i = 0; i < (int)_paginationDots.size(); i++) {
+    if (i == _activePageIndex) {
+      // Active dot: fully opaque white
+      _paginationDots[i]->setColor(Color4(255, 255, 255, 255));
+    } else {
+      // Inactive dots: semi-transparent white
+      _paginationDots[i]->setColor(Color4(255, 255, 255, 100));
+    }
+  }
 }
 
 #pragma mark -
@@ -288,13 +373,18 @@ void SwipeCarouselController::updateActivePage() {
   newActiveIndex = std::max(0, std::min(newActiveIndex, NUM_FIDGETABLES - 1));
 
   // Update active state if changed
-  if (newActiveIndex != _activePageIndex || _activePageIndex == 0) {
+  if (newActiveIndex != _activePageIndex) {
     _activePageIndex = newActiveIndex;
 
     // Update all fidgetables' active state
     for (int i = 0; i < (int)_fidgetables.size(); i++) {
       _fidgetables[i]->setActive(i == _activePageIndex);
     }
+    
+    // Update pagination dots to reflect new active page
+    updatePaginationDots();
+    // Play a medium haptic
+    Haptics::medium();
   }
 }
 

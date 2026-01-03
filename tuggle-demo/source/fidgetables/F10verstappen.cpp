@@ -203,7 +203,7 @@ void F10verstappen::buildGearControls()
   _shiftDownButton = Button::alloc(downNormal, downPressed);
   _shiftDownButton->setAnchor(Vec2::ANCHOR_CENTER);
   _shiftDownButton->setPosition(
-      Vec2(centerX - buttonSpacing, controlsY - barHeight * 3.5f));
+      Vec2(centerX - buttonSpacing, controlsY - barHeight * 3.3f));
   _shiftDownButton->setName("f10_shift_down");
 
   _shiftDownButton->addListener([this](const std::string &name, bool down)
@@ -224,7 +224,7 @@ void F10verstappen::buildGearControls()
   downArrow->setColor(Color4(200, 200, 200, 255));
   downArrow->setAnchor(Vec2::ANCHOR_CENTER);
   downArrow->setPosition(
-      Vec2(centerX - buttonSpacing, controlsY - barHeight * 3.5f));
+      Vec2(centerX - buttonSpacing, controlsY - barHeight * 3.3f));
   _rootNode->addChild(downArrow);
 
   // Shift UP button (right)
@@ -234,7 +234,7 @@ void F10verstappen::buildGearControls()
   _shiftUpButton = Button::alloc(upNormal, upPressed);
   _shiftUpButton->setAnchor(Vec2::ANCHOR_CENTER);
   _shiftUpButton->setPosition(
-      Vec2(centerX + buttonSpacing, controlsY - barHeight * 3.5f));
+      Vec2(centerX + buttonSpacing, controlsY - barHeight * 3.3f));
   _shiftUpButton->setName("f10_shift_up");
 
   _shiftUpButton->addListener([this](const std::string &name, bool down)
@@ -252,7 +252,7 @@ void F10verstappen::buildGearControls()
   upArrow->setColor(Color4(200, 200, 200, 255));
   upArrow->setAnchor(Vec2::ANCHOR_CENTER);
   upArrow->setPosition(
-      Vec2(centerX + buttonSpacing, controlsY - barHeight * 3.5f));
+      Vec2(centerX + buttonSpacing, controlsY - barHeight * 3.3f));
   _rootNode->addChild(upArrow);
 }
 
@@ -261,7 +261,7 @@ void F10verstappen::buildverstappenPedal()
   // Rectangular pedal at the bottom
   float pedalWidth = _pageSize.width * 0.35f;
   float pedalHeight = _pageSize.height * 0.12f;
-  Vec2 pedalPos(_pageSize.width / 2, _pageSize.height * 0.10f);
+  Vec2 pedalPos(_pageSize.width / 2, _pageSize.height * 0.15f);
 
   auto normalNode = createRect(pedalWidth, pedalHeight, verstappen_COLOR);
   auto pressedNode =

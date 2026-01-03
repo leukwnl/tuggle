@@ -16,7 +16,7 @@
 /**
  * Main application class for the Fidgetable carousel.
  * 
- * This application displays a horizontal carousel of 8 fidgetable toys.
+ * This application displays a horizontal carousel of 10 tuggable toys.
  * Users can:
  * - Drag left/right to scroll through toys
  * - Tap the centered toy to interact with it
